@@ -1,18 +1,17 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-progressbar for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-progressbar/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-progressbar/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\ProgressBar\Adapter;
+namespace Laminas\ProgressBar\Adapter;
 
-use Zend\Json\Json;
+use Laminas\Json\Json;
 
 /**
- * Zend\ProgressBar\Adapter\JsPush offers a simple method for updating a
+ * Laminas\ProgressBar\Adapter\JsPush offers a simple method for updating a
  * progressbar in a browser.
  */
 class JsPush extends AbstractAdapter
@@ -22,7 +21,7 @@ class JsPush extends AbstractAdapter
      *
      * @var string
      */
-    protected $updateMethodName = 'Zend\ProgressBar\ProgressBar\Update';
+    protected $updateMethodName = 'Laminas\ProgressBar\ProgressBar\Update';
 
     /**
      * Name of the JavaScript method to call on finish
@@ -35,7 +34,7 @@ class JsPush extends AbstractAdapter
      * Set the update method name
      *
      * @param  string $methodName
-     * @return \Zend\ProgressBar\Adapter\JsPush
+     * @return \Laminas\ProgressBar\Adapter\JsPush
      */
     public function setUpdateMethodName($methodName)
     {
@@ -48,7 +47,7 @@ class JsPush extends AbstractAdapter
      * Set the finish method name
      *
      * @param  string $methodName
-     * @return \Zend\ProgressBar\Adapter\JsPush
+     * @return \Laminas\ProgressBar\Adapter\JsPush
      */
     public function setFinishMethodName($methodName)
     {
@@ -58,7 +57,7 @@ class JsPush extends AbstractAdapter
     }
 
     /**
-     * Defined by Zend\ProgressBar\Adapter\AbstractAdapter
+     * Defined by Laminas\ProgressBar\Adapter\AbstractAdapter
      *
      * @param  float   $current       Current progress value
      * @param  float   $max           Max progress value
@@ -88,7 +87,7 @@ class JsPush extends AbstractAdapter
     }
 
     /**
-     * Defined by Zend\ProgressBar\Adapter\AbstractAdapter
+     * Defined by Laminas\ProgressBar\Adapter\AbstractAdapter
      *
      * @return void
      */
