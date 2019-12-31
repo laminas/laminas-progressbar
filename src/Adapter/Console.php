@@ -1,20 +1,19 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2013 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-progressbar for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-progressbar/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-progressbar/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\ProgressBar\Adapter;
+namespace Laminas\ProgressBar\Adapter;
 
-use Zend\ProgressBar\Adapter\Exception;
-use Zend\Stdlib\ErrorHandler;
-use Zend\Stdlib\StringUtils;
+use Laminas\ProgressBar\Adapter\Exception;
+use Laminas\Stdlib\ErrorHandler;
+use Laminas\Stdlib\StringUtils;
 
 /**
- * Zend_ProgressBar_Adapter_Console offers a text-based progressbar for console
+ * Laminas_ProgressBar_Adapter_Console offers a text-based progressbar for console
  * applications
  */
 class Console extends AbstractAdapter
@@ -136,7 +135,7 @@ class Console extends AbstractAdapter
     protected $charset = 'utf-8';
 
     /**
-     * Defined by Zend_ProgressBar_Adapter
+     * Defined by Laminas_ProgressBar_Adapter
      *
      * @param  array|\Traversable $options
      */
@@ -166,7 +165,7 @@ class Console extends AbstractAdapter
      *
      * @param  string $resource
      * @throws Exception\RuntimeException
-     * @return \Zend\ProgressBar\Adapter\Console
+     * @return \Laminas\ProgressBar\Adapter\Console
      */
     public function setOutputStream($resource)
     {
@@ -207,7 +206,7 @@ class Console extends AbstractAdapter
      * Set the width of the progressbar
      *
      * @param  int $width
-     * @return \Zend\ProgressBar\Adapter\Console
+     * @return \Laminas\ProgressBar\Adapter\Console
      */
     public function setWidth($width = null)
     {
@@ -244,8 +243,8 @@ class Console extends AbstractAdapter
      * Set the elements to display with the progressbar
      *
      * @param  array $elements
-     * @throws \Zend\ProgressBar\Adapter\Exception\InvalidArgumentException When an invalid element is found in the array
-     * @return \Zend\ProgressBar\Adapter\Console
+     * @throws \Laminas\ProgressBar\Adapter\Exception\InvalidArgumentException When an invalid element is found in the array
+     * @return \Laminas\ProgressBar\Adapter\Console
      */
     public function setElements(array $elements)
     {
@@ -269,8 +268,8 @@ class Console extends AbstractAdapter
      * Set the left-hand character for the bar
      *
      * @param  string $char
-     * @throws \Zend\ProgressBar\Adapter\Exception\InvalidArgumentException When character is empty
-     * @return \Zend\ProgressBar\Adapter\Console
+     * @throws \Laminas\ProgressBar\Adapter\Exception\InvalidArgumentException When character is empty
+     * @return \Laminas\ProgressBar\Adapter\Console
      */
     public function setBarLeftChar($char)
     {
@@ -287,8 +286,8 @@ class Console extends AbstractAdapter
      * Set the right-hand character for the bar
      *
      * @param  string $char
-     * @throws \Zend\ProgressBar\Adapter\Exception\InvalidArgumentException When character is empty
-     * @return \Zend\ProgressBar\Adapter\Console
+     * @throws \Laminas\ProgressBar\Adapter\Exception\InvalidArgumentException When character is empty
+     * @return \Laminas\ProgressBar\Adapter\Console
      */
     public function setBarRightChar($char)
     {
@@ -305,7 +304,7 @@ class Console extends AbstractAdapter
      * Set the indicator character for the bar
      *
      * @param  string $char
-     * @return \Zend\ProgressBar\Adapter\Console
+     * @return \Laminas\ProgressBar\Adapter\Console
      */
     public function setBarIndicatorChar($char)
     {
@@ -318,7 +317,7 @@ class Console extends AbstractAdapter
      * Set the width of the text element
      *
      * @param  int $width
-     * @return \Zend\ProgressBar\Adapter\Console
+     * @return \Laminas\ProgressBar\Adapter\Console
      */
     public function setTextWidth($width)
     {
@@ -343,8 +342,8 @@ class Console extends AbstractAdapter
      * Set the finish action
      *
      * @param  string $action
-     * @throws \Zend\ProgressBar\Adapter\Exception\InvalidArgumentException When an invalid action is specified
-     * @return \Zend\ProgressBar\Adapter\Console
+     * @throws \Laminas\ProgressBar\Adapter\Exception\InvalidArgumentException When an invalid action is specified
+     * @return \Laminas\ProgressBar\Adapter\Console
      */
     public function setFinishAction($action)
     {
@@ -362,7 +361,7 @@ class Console extends AbstractAdapter
     }
 
     /**
-     * Defined by Zend\ProgressBar\Adapter\AbstractAdapter
+     * Defined by Laminas\ProgressBar\Adapter\AbstractAdapter
      *
      * @param  float   $current       Current progress value
      * @param  float   $max           Max progress value
@@ -454,7 +453,7 @@ class Console extends AbstractAdapter
     }
 
     /**
-     * Defined by Zend\ProgressBar\Adapter\AbstractAdapter
+     * Defined by Laminas\ProgressBar\Adapter\AbstractAdapter
      *
      * @return void
      */
