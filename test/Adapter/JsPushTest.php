@@ -1,19 +1,18 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-progressbar for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-progressbar/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-progressbar/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\ProgressBar\Adapter;
+namespace LaminasTest\ProgressBar\Adapter;
 
+use LaminasTest\ProgressBar\TestAsset\JsPushStub;
 use PHPUnit\Framework\TestCase;
-use ZendTest\ProgressBar\TestAsset\JsPushStub;
 
 /**
- * @group      Zend_ProgressBar
+ * @group      Laminas_ProgressBar
  */
 class JsPushTest extends TestCase
 {
@@ -21,12 +20,12 @@ class JsPushTest extends TestCase
     {
         $result = [];
 
-        $adapter = new JsPushStub(['finishMethodName' => 'Zend\ProgressBar\ProgressBar\Finish']);
+        $adapter = new JsPushStub(['finishMethodName' => 'Laminas\ProgressBar\ProgressBar\Finish']);
         $adapter->notify(0, 2, 0.5, 1, 1, 'status');
         $output = $adapter->getLastOutput();
 
         $matches = preg_match('#<script type="text/javascript">parent.'
-            . preg_quote('Zend\\ProgressBar\\ProgressBar\\Update') . '\((.*?)\);</script>#', $output, $result);
+            . preg_quote('Laminas\\ProgressBar\\ProgressBar\\Update') . '\((.*?)\);</script>#', $output, $result);
         $this->assertEquals(1, $matches);
 
         $data = json_decode($result[1], true);
@@ -42,7 +41,7 @@ class JsPushTest extends TestCase
         $output = $adapter->getLastOutput();
 
         $matches = preg_match('#<script type="text/javascript">parent.'
-            . preg_quote('Zend\ProgressBar\ProgressBar\Finish') . '\(\);</script>#', $output, $result);
+            . preg_quote('Laminas\ProgressBar\ProgressBar\Finish') . '\(\);</script>#', $output, $result);
         $this->assertEquals(1, $matches);
     }
 }

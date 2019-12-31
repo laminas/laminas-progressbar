@@ -1,8 +1,8 @@
 <?php
 
-namespace ZendTest\ProgressBar\TestAsset;
+namespace LaminasTest\ProgressBar\TestAsset;
 
-class Stub extends \Zend\ProgressBar\ProgressBar
+class Stub extends \Laminas\ProgressBar\ProgressBar
 {
     public function sleep($seconds)
     {

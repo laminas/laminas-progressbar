@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- [#27](https://github.com/zendframework/zend-progressbar/pull/27) adds support for PHP 7.3.
+- [zendframework/zend-progressbar#27](https://github.com/zendframework/zend-progressbar/pull/27) adds support for PHP 7.3.
 
 ### Changed
 
@@ -18,7 +18,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- [#27](https://github.com/zendframework/zend-progressbar/pull/27) removes support for zend-stdlib v2 releases.
+- [zendframework/zend-progressbar#27](https://github.com/zendframework/zend-progressbar/pull/27) removes support for laminas-stdlib v2 releases.
 
 ### Fixed
 
@@ -28,10 +28,10 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- [#25](https://github.com/zendframework/zend-progressbar/pull/25) adds support for PHP 7.1 and 7.2.
+- [zendframework/zend-progressbar#25](https://github.com/zendframework/zend-progressbar/pull/25) adds support for PHP 7.1 and 7.2.
 
-- [#17](https://github.com/zendframework/zend-progressbar/pull/17) adds and
-  publishes the documentation to https://docs.zendframework.com/zend-progressbar/
+- [zendframework/zend-progressbar#17](https://github.com/zendframework/zend-progressbar/pull/17) adds and
+  publishes the documentation to https://docs.laminas.dev/laminas-progressbar/
 
 ### Changed
 
@@ -43,9 +43,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- [#25](https://github.com/zendframework/zend-progressbar/pull/25) removes support for PHP 5.5.
+- [zendframework/zend-progressbar#25](https://github.com/zendframework/zend-progressbar/pull/25) removes support for PHP 5.5.
 
-- [#25](https://github.com/zendframework/zend-progressbar/pull/25) removes support for HHVM.
+- [zendframework/zend-progressbar#25](https://github.com/zendframework/zend-progressbar/pull/25) removes support for HHVM.
 
 ### Fixed
 
@@ -67,5 +67,5 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- [#10](https://github.com/zendframework/zend-progressbar/pull/10) updates
-  dependencies to allow forward-compatibility with zend-stdlib 3.
+- [zendframework/zend-progressbar#10](https://github.com/zendframework/zend-progressbar/pull/10) updates
+  dependencies to allow forward-compatibility with laminas-stdlib 3.

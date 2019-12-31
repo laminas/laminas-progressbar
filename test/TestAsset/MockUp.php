@@ -1,8 +1,8 @@
 <?php
 
-namespace ZendTest\ProgressBar\TestAsset;
+namespace LaminasTest\ProgressBar\TestAsset;
 
-class MockUp extends \Zend\ProgressBar\Adapter\AbstractAdapter
+class MockUp extends \Laminas\ProgressBar\Adapter\AbstractAdapter
 {
     // @codingStandardsIgnoreStart
     protected $_current;

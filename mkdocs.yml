@@ -6,6 +6,6 @@ nav:
         - Intro: intro.md
         - Adapters: adapters.md
     - "File Upload Handlers": upload.md
-site_name: zend-progressbar
+site_name: laminas-progressbar
 site_description: "Create and update progress bars in different environments"
-repo_url: 'https://github.com/zendframework/zend-progressbar'
+repo_url: 'https://github.com/laminas/laminas-progressbar'
