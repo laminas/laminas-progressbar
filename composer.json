@@ -1,31 +1,22 @@
 {
-    "name": "zendframework/zend-progressbar",
+    "name": "laminas/laminas-progressbar",
     "description": "component to create and update progressbars in different environments",
     "license": "BSD-3-Clause",
     "keywords": [
-        "zf2",
+        "laminas",
         "progressbar"
     ],
-    "homepage": "https://github.com/zendframework/zend-progress-bar",
-    "autoload": {
-        "psr-4": {
-            "Zend\\ProgressBar\\": "src/"
-        }
+    "homepage": "https://laminas.dev",
+    "support": {
+        "docs": "https://docs.laminas.dev/laminas-progressbar/",
+        "issues": "https://github.com/laminas/laminas-progressbar/issues",
+        "source": "https://github.com/laminas/laminas-progressbar",
+        "rss": "https://github.com/laminas/laminas-progressbar/releases.atom",
+        "chat": "https://laminas.dev/chat",
+        "forum": "https://discourse.laminas.dev"
     },
-    "require": {
-        "php": ">=5.3.23",
-        "zendframework/zend-stdlib": "self.version"
-    },
-    "require-dev": {
-        "zendframework/zend-json": "self.version",
-        "zendframework/zend-session": "self.version",
-        "fabpot/php-cs-fixer": "1.7.*",
-        "satooshi/php-coveralls": "dev-master",
-        "phpunit/PHPUnit": "~4.0"
-    },
-    "suggest": {
-        "zendframework/zend-json": "Zend\\Json component",
-        "zendframework/zend-session": "To support progressbar persistent"
+    "config": {
+        "sort-packages": true
     },
     "extra": {
         "branch-alias": {
@@ -33,9 +24,33 @@
             "dev-develop": "2.4-dev"
         }
     },
+    "require": {
+        "php": ">=5.3.23",
+        "laminas/laminas-stdlib": "self.version",
+        "laminas/laminas-zendframework-bridge": "^1.0"
+    },
+    "require-dev": {
+        "fabpot/php-cs-fixer": "1.7.*",
+        "laminas/laminas-json": "self.version",
+        "laminas/laminas-session": "self.version",
+        "phpunit/phpunit": "~4.0",
+        "satooshi/php-coveralls": "dev-master"
+    },
+    "suggest": {
+        "laminas/laminas-json": "Laminas\\Json component",
+        "laminas/laminas-session": "To support progressbar persistent"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laminas\\ProgressBar\\": "src/"
+        }
+    },
     "autoload-dev": {
         "psr-4": {
-            "ZendTest\\ProgressBar\\": "test/"
+            "LaminasTest\\ProgressBar\\": "test/"
         }
+    },
+    "replace": {
+        "zendframework/zend-progressbar": "self.version"
     }
 }
