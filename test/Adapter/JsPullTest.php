@@ -1,21 +1,19 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2013 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- * @package   Zend_ProgressBar
+ * @see       https://github.com/laminas/laminas-progressbar for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-progressbar/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-progressbar/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\ProgressBar\Adapter;
+namespace LaminasTest\ProgressBar\Adapter;
 
 
 /**
- * @category   Zend
- * @package    Zend_ProgressBar
+ * @category   Laminas
+ * @package    Laminas_ProgressBar
  * @subpackage UnitTests
- * @group      Zend_ProgressBar
+ * @group      Laminas_ProgressBar
  */
 class JsPullTest extends \PHPUnit_Framework_TestCase
 {
@@ -45,7 +43,7 @@ class JsPullTest extends \PHPUnit_Framework_TestCase
     }
 }
 
-class JsPullStub extends \Zend\ProgressBar\Adapter\JsPull
+class JsPullStub extends \Laminas\ProgressBar\Adapter\JsPull
 {
     protected $_lastOutput = null;
 
