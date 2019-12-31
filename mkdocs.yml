@@ -1,11 +1,12 @@
 docs_dir: docs/book
 site_dir: docs/html
 nav:
-    - Home: index.md
-    - "Progress Bars":
-        - Intro: intro.md
-        - Adapters: adapters.md
-    - "File Upload Handlers": upload.md
+    - { Home: index.md }
+    - { 'Progress Bars': [{ Intro: intro.md }, { Adapters: adapters.md }] }
+    - { 'File Upload Handlers': upload.md }
 site_name: laminas-progressbar
-site_description: "Create and update progress bars in different environments"
+site_description: 'Create and update progress bars in different environments'
 repo_url: 'https://github.com/laminas/laminas-progressbar'
+extra:
+    project: Components
+    project_url: 'https://docs.laminas.dev'
