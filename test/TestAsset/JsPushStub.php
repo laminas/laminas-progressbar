@@ -1,8 +1,8 @@
 <?php
 
-namespace ZendTest\ProgressBar\TestAsset;
+namespace LaminasTest\ProgressBar\TestAsset;
 
-class JsPushStub extends \Zend\ProgressBar\Adapter\JsPush
+class JsPushStub extends \Laminas\ProgressBar\Adapter\JsPush
 {
     // @codingStandardsIgnoreStart
     protected $_lastOutput = null;

@@ -1,13 +1,13 @@
 # File Upload Handlers
 
-zend-progressbar provides handlers that can give you the actual state of a file
+laminas-progressbar provides handlers that can give you the actual state of a file
 upload in progress. To use this feature you need to choose one of the upload
 progress handlers (APC, uploadprogress, or session) and ensure that your server
 setup has the appropriate extension or feature enabled. All of the progress
 handlers use the same interface.
 
 When uploading a file via HTTP POST, you must also include the progress identifier in a hidden
-input. The [File Upload Progress View Helpers](http://docs.zendframework.com/zend-form/helper/upload-progress-helpers/#upload-progress-helpers)
+input. The [File Upload Progress View Helpers](http://docs.laminas.dev/laminas-form/helper/upload-progress-helpers/#upload-progress-helpers)
 provide a convenient way to add the hidden input based on your handler type.
 
 ## Methods of Reporting Progress
@@ -17,12 +17,12 @@ ProgressBar Adapter, or using the returned status array manually.
 
 ### Using a ProgressBar Adapter
 
-A zend-progressbar adapter can be used to display upload progress to your users.
+A laminas-progressbar adapter can be used to display upload progress to your users.
 
 ```php
-use Zend\I18n\Filter\Alnum as AlnumFilter;
-use Zend\ProgressBar\Adapter;
-use Zend\ProgressBar\Upload;
+use Laminas\I18n\Filter\Alnum as AlnumFilter;
+use Laminas\ProgressBar\Adapter;
+use Laminas\ProgressBar\Upload;
 
 $adapter  = new Adapter\JsPush();
 $progress = new Upload\SessionProgress();
@@ -59,8 +59,8 @@ All other returned keys are provided directly from the specific handler.
 An example of using the status array manually:
 
 ```php
-use Zend\ProgressBar\Upload\SessionProgress;
-use Zend\View\Model\JsonModel;
+use Laminas\ProgressBar\Upload\SessionProgress;
+use Laminas\View\Model\JsonModel;
 
 // In a Controller...
 
@@ -83,7 +83,7 @@ public function sessionProgressAction()
 
 ## Standard Handlers
 
-zend-progressbar comes with the following three upload handlers:
+laminas-progressbar comes with the following three upload handlers:
 
 - [ApcProgress](#apc-progress-handler)
 - [SessionProgress](#session-progress-handler)
@@ -91,7 +91,7 @@ zend-progressbar comes with the following three upload handlers:
 
 ### APC Progress Handler
 
-`Zend\ProgressBar\Upload\ApcProgress` uses the [APC extension](http://php.net/apc)
+`Laminas\ProgressBar\Upload\ApcProgress` uses the [APC extension](http://php.net/apc)
 for tracking upload progress.
 
 > #### Extension required
@@ -99,22 +99,22 @@ for tracking upload progress.
 > The [APC extension](http://php.net/apc) is required when using this handler.
 
 This handler is best used with the
-[FormFileApcProgress](http://docs.zendframework.com/zend-form/helper/form-file-apc-progress/)
+[FormFileApcProgress](http://docs.laminas.dev/laminas-form/helper/form-file-apc-progress/)
 view helper, to provide a hidden element with the upload progress identifier.
 
 ### Session Progress Handler
 
-The `Zend\ProgressBar\Upload\SessionProgress` handler uses the PHP
+The `Laminas\ProgressBar\Upload\SessionProgress` handler uses the PHP
 [Session Progress](http://php.net/session.upload-progress) feature for tracking
 upload progress.
 
 This handler is best used with the
-[FormFileSessionProgress](http://docs.zendframework.com/zend-form/helper/form-file-session-progress/)
+[FormFileSessionProgress](http://docs.laminas.dev/laminas-form/helper/form-file-session-progress/)
 view helper, to provide a hidden element with the upload progress identifier.
 
 ### Upload Progress Handler
 
-The `Zend\ProgressBar\Upload\UploadProgress` handler uses the
+The `Laminas\ProgressBar\Upload\UploadProgress` handler uses the
 [PECL Uploadprogress extension](http://pecl.php.net/package/uploadprogress) for
 tracking upload progress.
 
@@ -124,5 +124,5 @@ tracking upload progress.
 > is required in order to use this handler.
 
 This handler is best used with the
-[FormFileUploadProgress](http://docs.zendframework.com/zend-form/helper/form-file-upload-progress/)
+[FormFileUploadProgress](http://docs.laminas.dev/laminas-form/helper/form-file-upload-progress/)
 view helper, to provide a hidden element with the upload progress identifier.

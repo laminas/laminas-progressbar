@@ -1,14 +1,14 @@
 # Standard Adapters
 
-zend-progressbar comes with the following three adapters:
+laminas-progressbar comes with the following three adapters:
 
-- [Zend\\Progressbar\\Adapter\\Console](#console-adapter)
-- [Zend\\Progressbar\\Adapter\\JsPush](#jspush-adapter)
-- [Zend\\ProgressBar\\Adapter\\JsPull](#jspull-adapter)
+- [Laminas\\Progressbar\\Adapter\\Console](#console-adapter)
+- [Laminas\\Progressbar\\Adapter\\JsPush](#jspush-adapter)
+- [Laminas\\ProgressBar\\Adapter\\JsPull](#jspull-adapter)
 
 ## Console Adapter
 
-`Zend\ProgressBar\Adapter\Console` is a text-based adapter for terminals. It can
+`Laminas\ProgressBar\Adapter\Console` is a text-based adapter for terminals. It can
 automatically detect terminal widths, but supports custom widths as well. You
 can define which elements are displayed with the progressbar as well customize
 the order of them. You can also define the style of the progressbar itself.
@@ -46,7 +46,7 @@ Option name       | Description
 
 ## JsPush Adapter
 
-`Zend\ProgressBar\Adapter\JsPush` is an adapter allowing you to update a
+`Laminas\ProgressBar\Adapter\JsPush` is an adapter allowing you to update a
 browser-based progressbar via Javascript Push. This means that no second
 connection is required to gather the status about a running process, but that
 the process itself sends its status directly to the browser.
@@ -57,7 +57,7 @@ constructor. The available options are:
 
 Option name      | Type          | Description
 ---------------- | ------------- | -----------
-updateMethodName | `string`      | The JavaScript method which should be called on every update. Default value is `Zend\ProgressBar\Update`.
+updateMethodName | `string`      | The JavaScript method which should be called on every update. Default value is `Laminas\ProgressBar\Update`.
 finishMethodName | `null|string` | The JavaScript method which should be called when sending the finish status. Default value is `NULL`, which means nothing is done.
 
 To use this adapter, first create a progressbar in your browser, either with
@@ -81,8 +81,8 @@ text          | The optional status message, if given.
 This example illustrates a basic setup of HTML, CSS, and JavaScript for the `JsPush` adapter
 
 ```html
-<div id="zend-progressbar-container">
-    <div id="zend-progressbar-done"></div>
+<div id="laminas-progressbar-container">
+    <div id="laminas-progressbar-done"></div>
 </div>
 
 <iframe src="long-running-process.php" id="long-running-process"></iframe>
@@ -98,7 +98,7 @@ This example illustrates a basic setup of HTML, CSS, and JavaScript for the `JsP
     height: 1px;
 }
 
-#zend-progressbar-container {
+#laminas-progressbar-container {
     width: 100px;
     height: 30px;
 
@@ -106,7 +106,7 @@ This example illustrates a basic setup of HTML, CSS, and JavaScript for the `JsP
     background-color: #ffffff;
 }
 
-#zend-progressbar-done {
+#laminas-progressbar-done {
     width: 0;
     height: 30px;
 
@@ -115,9 +115,9 @@ This example illustrates a basic setup of HTML, CSS, and JavaScript for the `JsP
 ```
 
 ```javascript
-function Zend\ProgressBar\Update(data)
+function Laminas\ProgressBar\Update(data)
 {
-    document.getElementById('zend-progressbar-done').style.width = data.percent + '%';
+    document.getElementById('laminas-progressbar-done').style.width = data.percent + '%';
 }
 ```
 
@@ -141,12 +141,12 @@ available JavaScript libraries like Dojo, jQuery etc.:
 
 ## JsPull Adapter
 
-``Zend\ProgressBar\Adapter\JsPull`` is the opposite of `JsPush`, as it requires
+``Laminas\ProgressBar\Adapter\JsPull`` is the opposite of `JsPush`, as it requires
 the browser to pull for new updates, instead of
 pushing updates directly without intervention.
 
 In general, you should use this adapter with the
-[persistence option of the `Zend\ProgressBar\ProgressBar`](intro.md#persistent-progress).
+[persistence option of the `Laminas\ProgressBar\ProgressBar`](intro.md#persistent-progress).
 On notify, the adapter sends a JSON string to the browser, which looks exactly
 like the JSON string which is sent by the `JsPush` adapter, with one difference:
 it contains an additional parameter, `finished`, which is either `false` when
