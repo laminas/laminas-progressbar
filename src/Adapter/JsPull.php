@@ -1,18 +1,17 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-progressbar for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-progressbar/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-progressbar/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\ProgressBar\Adapter;
+namespace Laminas\ProgressBar\Adapter;
 
-use Zend\Json\Json;
+use Laminas\Json\Json;
 
 /**
- * Zend\ProgressBar\Adapter\JsPull offers a simple method for updating a
+ * Laminas\ProgressBar\Adapter\JsPull offers a simple method for updating a
  * progressbar in a browser.
  */
 class JsPull extends AbstractAdapter
@@ -28,7 +27,7 @@ class JsPull extends AbstractAdapter
      * Set whether to exit after json data send or not
      *
      * @param  bool $exitAfterSend
-     * @return \Zend\ProgressBar\Adapter\JsPull
+     * @return \Laminas\ProgressBar\Adapter\JsPull
      */
     public function setExitAfterSend($exitAfterSend)
     {
@@ -36,7 +35,7 @@ class JsPull extends AbstractAdapter
     }
 
     /**
-     * Defined by Zend\ProgressBar\Adapter\AbstractAdapter
+     * Defined by Laminas\ProgressBar\Adapter\AbstractAdapter
      *
      * @param  float   $current       Current progress value
      * @param  float   $max           Max progress value
@@ -65,7 +64,7 @@ class JsPull extends AbstractAdapter
     }
 
     /**
-     * Defined by Zend\ProgressBar\Adapter\AbstractAdapter
+     * Defined by Laminas\ProgressBar\Adapter\AbstractAdapter
      *
      * @return void
      */

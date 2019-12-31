@@ -1,6 +1,6 @@
 # Progress Bars
 
-zend-progressbar allows creating and updating progress bars in different
+laminas-progressbar allows creating and updating progress bars in different
 environments. It consists of a single backend, which outputs the progress
 through one of the multiple adapters. On every update, it takes an absolute
 value and optionally a status message, and then calls the adapter with some
@@ -9,12 +9,12 @@ precalculated values like percentage and estimated time left.
 Basic Usage
 -----------
 
-To use the component, instantiate `Zend\ProgressBar\ProgressBar`, providing both
+To use the component, instantiate `Laminas\ProgressBar\ProgressBar`, providing both
 a a min- and a max-value, and an adapter for providing data output. If you want
 to process a file, you would do something like:
 
 ```php
-use Zend\ProgressBar\ProgressBar;
+use Laminas\ProgressBar\ProgressBar;
 
 $progressBar = new ProgressBar($adapter, 0, $fileSize);
 
@@ -26,7 +26,7 @@ while (! feof($fp)) {
 $progressBar->finish();
 ```
 
-In the first step, an instance of `Zend\ProgressBar\ProgressBar` is created,
+In the first step, an instance of `Laminas\ProgressBar\ProgressBar` is created,
 with a specific adapter, a min-value of 0 and a max-value of the total filesize.
 Then a file is processed and in every loop the progressbar is updated with the
 current byte count. At the end of the loop, the progressbar status is set to
