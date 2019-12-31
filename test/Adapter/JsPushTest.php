@@ -1,20 +1,18 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- * @package   Zend_ProgressBar
+ * @see       https://github.com/laminas/laminas-progressbar for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-progressbar/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-progressbar/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\ProgressBar\Adapter;
+namespace LaminasTest\ProgressBar\Adapter;
 
 /**
- * @category   Zend
- * @package    Zend_ProgressBar
+ * @category   Laminas
+ * @package    Laminas_ProgressBar
  * @subpackage UnitTests
- * @group      Zend_ProgressBar
+ * @group      Laminas_ProgressBar
  */
 class JsPushTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,11 +21,11 @@ class JsPushTest extends \PHPUnit_Framework_TestCase
     {
         $result = array();
 
-        $adapter = new JsPushStub(array('finishMethodName' => 'Zend\ProgressBar\ProgressBar\Finish'));
+        $adapter = new JsPushStub(array('finishMethodName' => 'Laminas\ProgressBar\ProgressBar\Finish'));
         $adapter->notify(0, 2, 0.5, 1, 1, 'status');
         $output = $adapter->getLastOutput();
 
-        $matches = preg_match('#<script type="text/javascript">parent.'. preg_quote('Zend\\ProgressBar\\ProgressBar\\Update') . '\((.*?)\);</script>#', $output, $result);
+        $matches = preg_match('#<script type="text/javascript">parent.'. preg_quote('Laminas\\ProgressBar\\ProgressBar\\Update') . '\((.*?)\);</script>#', $output, $result);
         $this->assertEquals(1, $matches);
 
         $data = json_decode($result[1], true);
@@ -42,12 +40,12 @@ class JsPushTest extends \PHPUnit_Framework_TestCase
         $adapter->finish();
         $output = $adapter->getLastOutput();
 
-        $matches = preg_match('#<script type="text/javascript">parent.'. preg_quote('Zend\ProgressBar\ProgressBar\Finish') . '\(\);</script>#', $output, $result);
+        $matches = preg_match('#<script type="text/javascript">parent.'. preg_quote('Laminas\ProgressBar\ProgressBar\Finish') . '\(\);</script>#', $output, $result);
         $this->assertEquals(1, $matches);
     }
 }
 
-class JsPushStub extends \Zend\ProgressBar\Adapter\JsPush
+class JsPushStub extends \Laminas\ProgressBar\Adapter\JsPush
 {
     protected $_lastOutput = null;
 
