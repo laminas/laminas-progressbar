@@ -1,23 +1,22 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-progressbar for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-progressbar/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-progressbar/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\ProgressBar;
+namespace LaminasTest\ProgressBar;
 
 /**
- * @group      Zend_ProgressBar
+ * @group      Laminas_ProgressBar
  */
 class ProgressBarTest extends \PHPUnit_Framework_TestCase
 {
 
     public function testGreaterMin()
     {
-        $this->setExpectedException('Zend\ProgressBar\Exception\OutOfRangeException', '$max must be greater than $min');
+        $this->setExpectedException('Laminas\ProgressBar\Exception\OutOfRangeException', '$max must be greater than $min');
         $progressBar = $this->_getProgressBar(1, 0);
     }
 
@@ -91,7 +90,7 @@ class ProgressBarTest extends \PHPUnit_Framework_TestCase
     }
 }
 
-class Stub extends \Zend\ProgressBar\ProgressBar
+class Stub extends \Laminas\ProgressBar\ProgressBar
 {
     public function sleep($seconds)
     {
@@ -129,7 +128,7 @@ class Stub extends \Zend\ProgressBar\ProgressBar
     }
 }
 
-class MockUp extends \Zend\ProgressBar\Adapter\AbstractAdapter
+class MockUp extends \Laminas\ProgressBar\Adapter\AbstractAdapter
 {
     protected $_current;
     protected $_max;
