@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create and update progress bars in different environments">  
+    <link rel="canonical" href="https://docs.laminas.dev/adapters/">
+    <link rel="shortcut icon" href="/img/trademark-laminas-foundation-rgb.svg">
+
+    <title>Adapters - laminas-progressbar - Laminas Docs</title>
+
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body id="page-top" class="components">
+
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        
+        <a class="logo-link navbar-brand offset-md-2" href="https://getlaminas.org/" data-tooltip data-placement="bottom" title="Go to the Laminas homepage">
+            <img src="../img/laminas-foundation-white.svg" height="28" alt="Lamnias">
+        </a>
+        <a class="navbar-title" href="https://docs.laminas.dev/" data-tooltip data-placement="bottom" title="Go to the Laminas Documentation">
+            Documentation
+        </a>
+
+        
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="https://getlaminas.org/about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://getlaminas.org/blog" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://docs.laminas.dev" class="nav-link">All Docs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://getlaminas.org/participate" class="nav-link">Community</a>
+                </li>
+            </ul>
+
+            
+            
+                <div class="d-block d-sm-none">
+                    
+    <div class="subnavigation hidden-print">
+        <h4 class="subnavigation__title">
+            <a href="..">laminas-progressbar</a>
+        </h4>
+
+        <h5 class="subnavigation__subtitle">Table of Contents</h5>
+
+        <ul class="subnavigation__list">
+            
+
+                
+                
+
+                    
+                    
+                        
+                            <li class="subnavigation__list-item">
+                                <span class="subnavigation__headline">Progress Bars</span>
+                                <ul class="subnavigation__list">
+                                    
+                                        
+    <li class="subnavigation__list-item ">
+        <a href="../intro/" class="subnavigation__link">Intro</a>
+    </li>
+
+                                    
+                                        
+    <li class="subnavigation__list-item subnavigation__list-item--active">
+        <a href="./" class="subnavigation__link">Adapters</a>
+    </li>
+
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                
+            
+
+                
+                
+
+                    
+                    
+                        
+                            <li class="subnavigation__list-item ">
+                                <a href="../upload/" class="subnavigation__link">File Upload Handlers</a>
+                            </li>
+                        
+                    
+                
+            
+        </ul>
+    </div>
+
+                </div>
+            
+
+            
+            <div class="d-block d-sm-none">
+                <div class="component-selector">
+    
+    <h5 class="component-selector__subtitle">Find documentation…</h5>
+    <select class="form-control component-selector__control">
+        <option value="/">Overview</option>
+        <optgroup label="Components"></optgroup>
+    </select>
+</div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    
+    <header class="header">
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="col-6 offset-md-2">
+                <h1 class="header__title">
+                    Components
+
+                    
+                        <small class="header__subtitle">laminas-progressbar</small>
+                    
+                </h1>
+            </div>
+
+            
+            <div class="col-4 text-sm-right">
+                
+                    
+
+                    <a href="#" class="header__link header__link--search" data-toggle="modal" data-target="#mkdocs_search_modal" title="Open search">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                    <a href="https://github.com/laminas/laminas-progressbar/" class="header__link header__link--github" title="Go to repository of laminas-progressbar">
+                        <i class="fa fa-github"></i> GitHub
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 col-sm-12">
+                
+    
+
+    
+    
+        <div class="toc">
+            <h6 class="toc__headline">On this page</h6>
+            <ul class="toc__list">
+                
+                    <li class="toc__entry">
+                        <a href="#console-adapter" class="toc__link">Console Adapter</a>
+                    </li>
+                
+                    <li class="toc__entry">
+                        <a href="#jspush-adapter" class="toc__link">JsPush Adapter</a>
+                    </li>
+                
+                    <li class="toc__entry">
+                        <a href="#jspull-adapter" class="toc__link">JsPull Adapter</a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+
+            </div>
+            <div class="col-md-7 col-sm-12 content" role="main" data-spy="scroll" data-target=".toc">
+                
+                    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        
+            <li class="breadcrumb-item"><a href="">Overview</a></li>
+
+            
+                <li class="breadcrumb-item"><a href="..">laminas-progressbar</a></li>
+
+                
+                    
+                        
+                        
+                            <li class="breadcrumb-item">Progress Bars</li>
+                        
+                    
+                
+
+                <li class="breadcrumb-item active" aria-current="page">Adapters</li>
+            
+        
+    </ol>
+</nav>
+
+
+
+
+
+
+    
+    
+        <h2 class="chapter__headline">Progress Bars</h2>
+    
+
+    <h1 id="standard-adapters">Standard Adapters</h1>
+<p>laminas-progressbar comes with the following three adapters:</p>
+<ul>
+<li><a href="#console-adapter">Laminas\Progressbar\Adapter\Console</a></li>
+<li><a href="#jspush-adapter">Laminas\Progressbar\Adapter\JsPush</a></li>
+<li><a href="#jspull-adapter">Laminas\ProgressBar\Adapter\JsPull</a></li>
+</ul>
+<h2 id="console-adapter">Console Adapter</h2>
+<p><code>Laminas\ProgressBar\Adapter\Console</code> is a text-based adapter for terminals. It can
+automatically detect terminal widths, but supports custom widths as well. You
+can define which elements are displayed with the progressbar as well customize
+the order of them. You can also define the style of the progressbar itself.</p>
+<blockquote>
+<h3>Automatic console width recognition</h3>
+<p><code>shell_exec()</code> is required for this feature to work on *nix based systems. On
+Windows, there is always a fixed terminal width of 80 characters, so no
+recognition is required there.</p>
+</blockquote>
+<p>You can set the adapter options either via the <code>set*()</code> methods, or provide an
+array or <code>Traversable</code> instance with options as first parameter to the
+constructor. The available options are:</p>
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th>Option name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>outputStream</td>
+<td><code>string|resource</code></td>
+<td>A different output stream, if you don't want to stream to <code>STDOUT</code>. Can be any other stream like <code>php://stderr</code> or a path to a file.</td>
+</tr>
+<tr>
+<td>width</td>
+<td><code>int|ProgressBar::AUTO</code></td>
+<td>Console width to use; <code>ProgressBar::AUTO</code> indicates the adapter should autodetect the width.</td>
+</tr>
+<tr>
+<td>elements</td>
+<td><code>null|array</code></td>
+<td>Which elements to include in the display; <code>null</code> to include all, or an array with one of the <code>Console</code> constants, as detailed below.</td>
+</tr>
+<tr>
+<td>textWidth</td>
+<td><code>int</code></td>
+<td>Width in characters of the <code>ELEMENT_TEXT</code> element. Default is 20.</td>
+</tr>
+<tr>
+<td>charset</td>
+<td><code>string</code></td>
+<td>Charset of the <code>ELEMENT_TEXT</code> element. Default is utf-8.</td>
+</tr>
+<tr>
+<td>barLeftChar</td>
+<td><code>string</code></td>
+<td>String to use on the left-hand side of the progressbar indicator.</td>
+</tr>
+<tr>
+<td>barRightChar</td>
+<td><code>string</code></td>
+<td>String to use on the right-hand side of the progressbar indicator.</td>
+</tr>
+<tr>
+<td>barIndicatorChar</td>
+<td><code>string</code></td>
+<td>String to use within the progressbar indicator to indicate progress; can be empty.</td>
+</tr>
+</tbody>
+</table></div>
+<p>To determine which elements to display in the progressbar, use one or more of
+the following constants:</p>
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th>Option name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ELEMENT_PERCENT</code></td>
+<td>The current value in percent.</td>
+</tr>
+<tr>
+<td><code>ELEMENT_BAR</code></td>
+<td>The visual bar which display the percentage.</td>
+</tr>
+<tr>
+<td><code>ELEMENT_ETA</code></td>
+<td>The automatic calculated ETA. This element is firstly displayed after five seconds, because in this time, it is not able to calculate accurate results.</td>
+</tr>
+<tr>
+<td><code>ELEMENT_TEXT</code></td>
+<td>An optional status message about the current process.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="jspush-adapter">JsPush Adapter</h2>
+<p><code>Laminas\ProgressBar\Adapter\JsPush</code> is an adapter allowing you to update a
+browser-based progressbar via Javascript Push. This means that no second
+connection is required to gather the status about a running process, but that
+the process itself sends its status directly to the browser.</p>
+<p>You can set the adapter options either via the <code>set()</code> methods or provide an
+array or <code>Traversable</code> instance with options as the first parameter to the
+constructor. The available options are:</p>
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th>Option name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>updateMethodName</td>
+<td><code>string</code></td>
+<td>The JavaScript method which should be called on every update. Default value is <code>Laminas\ProgressBar\Update</code>.</td>
+</tr>
+<tr>
+<td>finishMethodName</td>
+<td><code>null|string</code></td>
+<td>The JavaScript method which should be called when sending the finish status. Default value is <code>NULL</code>, which means nothing is done.</td>
+</tr>
+</tbody>
+</table></div>
+<p>To use this adapter, first create a progressbar in your browser, either with
+JavaScript or plain HTML. Then define the update method and optionally a finish
+method in JavaScript; both should expect a JSON object as the only argument.
+Then call a webpage with the long-running process in a hidden <code>iframe</code> or
+<code>object</code> tag. While the process is running, the adapter will call the update
+method on every update with a JSON object, containing the following parameters:</p>
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>current</td>
+<td>The current absolute value detailing upload status.</td>
+</tr>
+<tr>
+<td>max</td>
+<td>The max absolute value, indicating total upload size.</td>
+</tr>
+<tr>
+<td>percent</td>
+<td>The calculated percentage complete of the upload.</td>
+</tr>
+<tr>
+<td>timeTaken</td>
+<td>The elapsed time of the upload currently.</td>
+</tr>
+<tr>
+<td>timeRemaining</td>
+<td>The expected time until the upload finishes.</td>
+</tr>
+<tr>
+<td>text</td>
+<td>The optional status message, if given.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Basic example for the client-side</h3>
+<p>This example illustrates a basic setup of HTML, CSS, and JavaScript for the <code>JsPush</code> adapter</p>
+<div class=md-fenced-code-tabs id=tab-tab-group-0><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-0-0_html-panel role=tab id=tab-group-0-0_html-tab data-toggle=tab data-lang=html aria-controls=tab-group-0-0_html-panel aria-selected=true>Html</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-1_css-panel role=tab id=tab-group-0-1_css-tab data-toggle=tab data-lang=css aria-controls=tab-group-0-1_css-panel aria-selected=false>Css</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-2_javascript-panel role=tab id=tab-group-0-2_javascript-tab data-toggle=tab data-lang=javascript aria-controls=tab-group-0-2_javascript-panel aria-selected=false>Javascript</a></li></ul><div class=tab-content><div id=tab-group-0-0_html-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-0-0_html-tab><div class=codehilite><pre><span></span><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&quot;laminas-progressbar-container&quot;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&quot;laminas-progressbar-done&quot;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+
+<span class=p>&lt;</span><span class=nt>iframe</span> <span class=na>src</span><span class=o>=</span><span class=s>&quot;long-running-process.php&quot;</span> <span class=na>id</span><span class=o>=</span><span class=s>&quot;long-running-process&quot;</span><span class=p>&gt;&lt;/</span><span class=nt>iframe</span><span class=p>&gt;</span>
+</pre></div></div><div id=tab-group-0-1_css-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-1_css-tab><div class=codehilite><pre><span></span><span class=p>#</span><span class=nn>long-running-process</span> <span class=p>{</span>
+    <span class=k>position</span><span class=p>:</span> <span class=kc>absolute</span><span class=p>;</span>
+    <span class=k>left</span><span class=p>:</span> <span class=mi>-100</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>top</span><span class=p>:</span> <span class=mi>-100</span><span class=kt>px</span><span class=p>;</span>
+
+    <span class=k>width</span><span class=p>:</span> <span class=mi>1</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>height</span><span class=p>:</span> <span class=mi>1</span><span class=kt>px</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=p>#</span><span class=nn>laminas-progressbar-container</span> <span class=p>{</span>
+    <span class=k>width</span><span class=p>:</span> <span class=mi>100</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>height</span><span class=p>:</span> <span class=mi>30</span><span class=kt>px</span><span class=p>;</span>
+
+    <span class=k>border</span><span class=p>:</span> <span class=mi>1</span><span class=kt>px</span> <span class=kc>solid</span> <span class=mh>#000000</span><span class=p>;</span>
+    <span class=k>background-color</span><span class=p>:</span> <span class=mh>#ffffff</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=p>#</span><span class=nn>laminas-progressbar-done</span> <span class=p>{</span>
+    <span class=k>width</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=k>height</span><span class=p>:</span> <span class=mi>30</span><span class=kt>px</span><span class=p>;</span>
+
+    <span class=k>background-color</span><span class=p>:</span> <span class=mh>#000000</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></div><div id=tab-group-0-2_javascript-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-2_javascript-tab><div class=codehilite><pre><span></span><span class=kd>function</span> <span class=nx>Laminas</span><span class=err>\</span><span class=nx>ProgressBar</span><span class=err>\</span><span class=nx>Update</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span>
+<span class=p>{</span>
+    <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;laminas-progressbar-done&#39;</span><span class=p>).</span><span class=nx>style</span><span class=p>.</span><span class=nx>width</span> <span class=o>=</span> <span class=nx>data</span><span class=p>.</span><span class=nx>percent</span> <span class=o>+</span> <span class=s1>&#39;%&#39;</span><span class=p>;</span>
+<span class=p>}</span>
+</pre></div></div></div></div>
+
+<p>This will create a container with a black border and a block which indicates the
+current process. You should not hide the <code>iframe</code> or <code>object</code> using <code>display: none;</code>,
+as some browsers (such as Safari 2) will not load the actual content then.</p>
+<p>Instead of creating your custom progressbar, you may want to use one of the
+available JavaScript libraries like Dojo, jQuery etc.:</p>
+<ul>
+<li><a href="http://dojotoolkit.org/reference-guide/dijit/ProgressBar.html">Dojo</a></li>
+<li><a href="https://api.jqueryui.com/progressbar/">jQuery</a></li>
+<li><a href="http://davidwalsh.name/dw-content/progress-bar.php">MooTools</a></li>
+<li><a href="http://livepipe.net/control/progressbar">Prototype</a></li>
+</ul>
+<blockquote>
+<h3>Interval of updates</h3>
+<p>Do not send too many updates, as every update has a minimum size of 1kb. This
+is a requirement for the Safari browser to actually render and execute the
+function call. Internet Explorer has a similar limitation of 256 bytes.</p>
+</blockquote>
+<h2 id="jspull-adapter">JsPull Adapter</h2>
+<p><code>Laminas\ProgressBar\Adapter\JsPull</code> is the opposite of <code>JsPush</code>, as it requires
+the browser to pull for new updates, instead of
+pushing updates directly without intervention.</p>
+<p>In general, you should use this adapter with the
+<a href="../intro/#persistent-progress">persistence option of the <code>Laminas\ProgressBar\ProgressBar</code></a>.
+On notify, the adapter sends a JSON string to the browser, which looks exactly
+like the JSON string which is sent by the <code>JsPush</code> adapter, with one difference:
+it contains an additional parameter, <code>finished</code>, which is either <code>false</code> when
+<code>update()</code> is called or <code>true</code>, when <code>finish()</code> is called.</p>
+<p>You can set the adapter options either via the <code>set*()</code> methods, or give an
+array or <code>Traversable</code> instance with options as first parameter to
+the constructor. The available options are:</p>
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th>Option name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>exitAfterSend</td>
+<td><code>bool</code></td>
+<td>Whether or not to exit the current request after the data is sent to the browser; default is <code>true</code>.</td>
+</tr>
+</tbody>
+</table></div>
+
+
+
+
+    <nav>
+    <ul class="page-nav hidden-print">
+
+        
+        <li class="page-nav__item">
+            
+                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../intro/">
+                    <i class="fa fa-chevron-left"></i> Previous
+                </a>
+            
+        </li>
+
+        
+        <li class="page-nav__item">
+            
+                <a rel="next" class="page-nav__link page-nav__link--next" href="../upload/">
+                    Next <i class="fa fa-chevron-right"></i>
+                </a>
+            
+        </li>
+    </ul>
+</nav>
+
+
+
+
+    <div class="help-wanted">
+        <p>
+            Found a mistake or want to contribute to the documentation?
+            <a href="https://github.com/laminas/laminas-progressbar/edit/master/docs/book/adapters.md" target="_blank" class="help-wanted__link">
+                Edit this page on GitHub!
+            </a>
+        </p>
+    </div>
+
+                
+            </div>
+            <div class="col-md-3 col-sm-12 sidebar">
+                
+                    <div class="component-selector">
+    
+    <h5 class="component-selector__subtitle">Find documentation…</h5>
+    <select class="form-control component-selector__control">
+        <option value="/">Overview</option>
+        <optgroup label="Components"></optgroup>
+    </select>
+</div>
+                    
+    <div class="subnavigation hidden-print">
+        <h4 class="subnavigation__title">
+            <a href="..">laminas-progressbar</a>
+        </h4>
+
+        <h5 class="subnavigation__subtitle">Table of Contents</h5>
+
+        <ul class="subnavigation__list">
+            
+
+                
+                
+
+                    
+                    
+                        
+                            <li class="subnavigation__list-item">
+                                <span class="subnavigation__headline">Progress Bars</span>
+                                <ul class="subnavigation__list">
+                                    
+                                        
+    <li class="subnavigation__list-item ">
+        <a href="../intro/" class="subnavigation__link">Intro</a>
+    </li>
+
+                                    
+                                        
+    <li class="subnavigation__list-item subnavigation__list-item--active">
+        <a href="./" class="subnavigation__link">Adapters</a>
+    </li>
+
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                
+            
+
+                
+                
+
+                    
+                    
+                        
+                            <li class="subnavigation__list-item ">
+                                <a href="../upload/" class="subnavigation__link">File Upload Handlers</a>
+                            </li>
+                        
+                    
+                
+            
+        </ul>
+    </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <footer class="footer">
+    <div class="container">
+
+        
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a class="footer__button" href="#page-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-7 offset-md-2">
+                <h5>Laminas</h5>
+                <ul>
+                    <li>Laminas Project <a href="https://getlaminas.org/">Components and MVC for Enterprise Applications</a></li>
+                    <li>Mezzio <a href="https://docs.mezzio.dev/">PSR-15 Middleware in Minutes</a></li>
+                    <li>Laminas API Tools: <a href="https://api-tools.getlaminas.org/">Build RESTful APIs in minutes</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+
+            
+            <div class="col-md-4 offset-md-2">
+                <h4 class="footer__headline">Support</h4>
+                <ul class="support__list">
+                    <li class="support__list-item">
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://laminas.dev/chat" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://github.com/laminas" class="support__link" title="Github"><i class="fa fa-github"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://twitter.com/getlaminas" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://getlaminas.org/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://getlaminas.org/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <div class="col-md-3">
+                <h4 class="footer__headline">License</h4>
+                <p>
+                    Code licensed under <a
+                        href="https://github.com/laminas/laminas-progressbar//blob/master/LICENSE.md">BSD 3-Clause</a>.
+                </p>
+            </div>
+
+            
+            <div class="col-md-3">
+                <h4 class="footer__headline">Copyright</h4>
+                <p>
+                    <!--Built with love by the Laminas team with the help of our
+                    <a href="https://github.com/laminas/laminas-progressbar//graphs/contributors">contributors</a>.<br>-->
+                    &copy; 2019-2019 by <a href="https://getlaminas.org/">The Laminas Project</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        let base_url = '..',
+            project  = "components",
+            siteName = 'laminas-progressbar';
+    </script>
+    <script src="/js/scripts.js"></script>
+        <script src="../search/main.js"></script>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Search</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search in laminas-progressbar" id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+</html>

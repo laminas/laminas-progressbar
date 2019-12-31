@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create and update progress bars in different environments">  
+    <link rel="canonical" href="https://docs.laminas.dev/upload/">
+    <link rel="shortcut icon" href="/img/trademark-laminas-foundation-rgb.svg">
+
+    <title>File Upload Handlers - laminas-progressbar - Laminas Docs</title>
+
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body id="page-top" class="components">
+
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        
+        <a class="logo-link navbar-brand offset-md-2" href="https://getlaminas.org/" data-tooltip data-placement="bottom" title="Go to the Laminas homepage">
+            <img src="../img/laminas-foundation-white.svg" height="28" alt="Lamnias">
+        </a>
+        <a class="navbar-title" href="https://docs.laminas.dev/" data-tooltip data-placement="bottom" title="Go to the Laminas Documentation">
+            Documentation
+        </a>
+
+        
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="https://getlaminas.org/about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://getlaminas.org/blog" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://docs.laminas.dev" class="nav-link">All Docs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://getlaminas.org/participate" class="nav-link">Community</a>
+                </li>
+            </ul>
+
+            
+            
+                <div class="d-block d-sm-none">
+                    
+    <div class="subnavigation hidden-print">
+        <h4 class="subnavigation__title">
+            <a href="..">laminas-progressbar</a>
+        </h4>
+
+        <h5 class="subnavigation__subtitle">Table of Contents</h5>
+
+        <ul class="subnavigation__list">
+            
+
+                
+                
+
+                    
+                    
+                        
+                            <li class="subnavigation__list-item">
+                                <span class="subnavigation__headline">Progress Bars</span>
+                                <ul class="subnavigation__list">
+                                    
+                                        
+    <li class="subnavigation__list-item ">
+        <a href="../intro/" class="subnavigation__link">Intro</a>
+    </li>
+
+                                    
+                                        
+    <li class="subnavigation__list-item ">
+        <a href="../adapters/" class="subnavigation__link">Adapters</a>
+    </li>
+
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                
+            
+
+                
+                
+
+                    
+                    
+                        
+                            <li class="subnavigation__list-item subnavigation__list-item--active">
+                                <a href="./" class="subnavigation__link">File Upload Handlers</a>
+                            </li>
+                        
+                    
+                
+            
+        </ul>
+    </div>
+
+                </div>
+            
+
+            
+            <div class="d-block d-sm-none">
+                <div class="component-selector">
+    
+    <h5 class="component-selector__subtitle">Find documentation…</h5>
+    <select class="form-control component-selector__control">
+        <option value="/">Overview</option>
+        <optgroup label="Components"></optgroup>
+    </select>
+</div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    
+    <header class="header">
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="col-6 offset-md-2">
+                <h1 class="header__title">
+                    Components
+
+                    
+                        <small class="header__subtitle">laminas-progressbar</small>
+                    
+                </h1>
+            </div>
+
+            
+            <div class="col-4 text-sm-right">
+                
+                    
+
+                    <a href="#" class="header__link header__link--search" data-toggle="modal" data-target="#mkdocs_search_modal" title="Open search">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                    <a href="https://github.com/laminas/laminas-progressbar/" class="header__link header__link--github" title="Go to repository of laminas-progressbar">
+                        <i class="fa fa-github"></i> GitHub
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 col-sm-12">
+                
+    
+
+    
+    
+        <div class="toc">
+            <h6 class="toc__headline">On this page</h6>
+            <ul class="toc__list">
+                
+                    <li class="toc__entry">
+                        <a href="#methods-of-reporting-progress" class="toc__link">Methods of Reporting Progress</a>
+                    </li>
+                
+                    <li class="toc__entry">
+                        <a href="#standard-handlers" class="toc__link">Standard Handlers</a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+
+            </div>
+            <div class="col-md-7 col-sm-12 content" role="main" data-spy="scroll" data-target=".toc">
+                
+                    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        
+            <li class="breadcrumb-item"><a href="">Overview</a></li>
+
+            
+                <li class="breadcrumb-item"><a href="..">laminas-progressbar</a></li>
+
+                
+
+                <li class="breadcrumb-item active" aria-current="page">File Upload Handlers</li>
+            
+        
+    </ol>
+</nav>
+
+
+
+
+
+
+    
+    
+
+    <h1 id="file-upload-handlers">File Upload Handlers</h1>
+<p>laminas-progressbar provides handlers that can give you the actual state of a file
+upload in progress. To use this feature you need to choose one of the upload
+progress handlers (APC, uploadprogress, or session) and ensure that your server
+setup has the appropriate extension or feature enabled. All of the progress
+handlers use the same interface.</p>
+<p>When uploading a file via HTTP POST, you must also include the progress identifier in a hidden
+input. The <a href="http://docs.laminas.dev/laminas-form/helper/upload-progress-helpers/#upload-progress-helpers">File Upload Progress View Helpers</a>
+provide a convenient way to add the hidden input based on your handler type.</p>
+<h2 id="methods-of-reporting-progress">Methods of Reporting Progress</h2>
+<p>There are two methods for reporting the current upload progress status: using a
+ProgressBar Adapter, or using the returned status array manually.</p>
+<h3>Using a ProgressBar Adapter</h3>
+<p>A laminas-progressbar adapter can be used to display upload progress to your users.</p>
+<p> <div class=codehilite><pre><span></span><span class=x>use Laminas\I18n\Filter\Alnum as AlnumFilter;</span>
+<span class=x>use Laminas\ProgressBar\Adapter;</span>
+<span class=x>use Laminas\ProgressBar\Upload;</span>
+
+<span class=x>$adapter  = new Adapter\JsPush();</span>
+<span class=x>$progress = new Upload\SessionProgress();</span>
+
+<span class=x>$filter   = new AlnumFilter(false, &#39;en_US&#39;);</span>
+<span class=x>$id       = $filter-&gt;filter($_GET[&#39;id&#39;]);</span>
+
+<span class=x>$status   = null;</span>
+<span class=x>while (empty($status[&#39;done&#39;])) {</span>
+<span class=x>    $status = $progress-&gt;getProgress($id);</span>
+<span class=x>}</span>
+</pre></div></p>
+<p>Each time the <code>getProgress()</code> method is called, the adapter will be updated.</p>
+<h3>Using the Status Array</h3>
+<p>You can also work manually with <code>getProgress()</code> without using an adapter.</p>
+<p><code>getProgress()</code> will return an array with several keys. They will sometimes
+differ based on the specific upload handler used, but the following keys are
+always standard:</p>
+<div class="table-responsive"><table>
+<thead>
+<tr>
+<th>Key name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>total</code></td>
+<td>The total file size of the uploaded file(s) in bytes as integer.</td>
+</tr>
+<tr>
+<td><code>current</code></td>
+<td>The current uploaded file size in bytes as integer.</td>
+</tr>
+<tr>
+<td><code>rate</code></td>
+<td>The average upload speed in bytes per second as integer.</td>
+</tr>
+<tr>
+<td><code>done</code></td>
+<td>Returns <code>TRUE</code> when the upload is finished and <code>FALSE</code> otherwise.</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>A status message. Either the progress as text in the form <code>10kB / 200kB</code>, or a helpful error message in the case of a problem (such as: no upload in progress, failure while retrieving the data for the progress, or that the upload has been canceled).</td>
+</tr>
+</tbody>
+</table></div>
+<p>All other returned keys are provided directly from the specific handler.</p>
+<p>An example of using the status array manually:</p>
+<p> <div class=codehilite><pre><span></span><span class=x>use Laminas\ProgressBar\Upload\SessionProgress;</span>
+<span class=x>use Laminas\View\Model\JsonModel;</span>
+
+<span class=x>// In a Controller...</span>
+
+<span class=x>public function sessionProgressAction()</span>
+<span class=x>{</span>
+<span class=x>    $id = $this-&gt;params()-&gt;fromQuery(&#39;id&#39;, null);</span>
+<span class=x>    $progress = new SessionProgress();</span>
+<span class=x>    return new JsonModel($progress-&gt;getProgress($id));</span>
+<span class=x>}</span>
+
+<span class=x>// Returns JSON</span>
+<span class=x>//{</span>
+<span class=x>//    &quot;total&quot;    : 204800,</span>
+<span class=x>//    &quot;current&quot;  : 10240,</span>
+<span class=x>//    &quot;rate&quot;     : 1024,</span>
+<span class=x>//    &quot;message&quot;  : &quot;10kB / 200kB&quot;,</span>
+<span class=x>//    &quot;done&quot;     : false</span>
+<span class=x>//}</span>
+</pre></div></p>
+<h2 id="standard-handlers">Standard Handlers</h2>
+<p>laminas-progressbar comes with the following three upload handlers:</p>
+<ul>
+<li><a href="#apc-progress-handler">ApcProgress</a></li>
+<li><a href="#session-progress-handler">SessionProgress</a></li>
+<li><a href="#upload-progress-handler">UploadProgress</a></li>
+</ul>
+<h3>APC Progress Handler</h3>
+<p><code>Laminas\ProgressBar\Upload\ApcProgress</code> uses the <a href="http://php.net/apc">APC extension</a>
+for tracking upload progress.</p>
+<blockquote>
+<h4>Extension required</h4>
+<p>The <a href="http://php.net/apc">APC extension</a> is required when using this handler.</p>
+</blockquote>
+<p>This handler is best used with the
+<a href="http://docs.laminas.dev/laminas-form/helper/form-file-apc-progress/">FormFileApcProgress</a>
+view helper, to provide a hidden element with the upload progress identifier.</p>
+<h3>Session Progress Handler</h3>
+<p>The <code>Laminas\ProgressBar\Upload\SessionProgress</code> handler uses the PHP
+<a href="http://php.net/session.upload-progress">Session Progress</a> feature for tracking
+upload progress.</p>
+<p>This handler is best used with the
+<a href="http://docs.laminas.dev/laminas-form/helper/form-file-session-progress/">FormFileSessionProgress</a>
+view helper, to provide a hidden element with the upload progress identifier.</p>
+<h3>Upload Progress Handler</h3>
+<p>The <code>Laminas\ProgressBar\Upload\UploadProgress</code> handler uses the
+<a href="http://pecl.php.net/package/uploadprogress">PECL Uploadprogress extension</a> for
+tracking upload progress.</p>
+<blockquote>
+<h4>Extension required</h4>
+<p>The <a href="http://pecl.php.net/package/uploadprogress">PECL Uploadprogress extension</a>
+is required in order to use this handler.</p>
+</blockquote>
+<p>This handler is best used with the
+<a href="http://docs.laminas.dev/laminas-form/helper/form-file-upload-progress/">FormFileUploadProgress</a>
+view helper, to provide a hidden element with the upload progress identifier.</p>
+
+
+
+
+    <nav>
+    <ul class="page-nav hidden-print">
+
+        
+        <li class="page-nav__item">
+            
+                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../adapters/">
+                    <i class="fa fa-chevron-left"></i> Previous
+                </a>
+            
+        </li>
+
+        
+        <li class="page-nav__item">
+            
+        </li>
+    </ul>
+</nav>
+
+
+
+
+    <div class="help-wanted">
+        <p>
+            Found a mistake or want to contribute to the documentation?
+            <a href="https://github.com/laminas/laminas-progressbar/edit/master/docs/book/upload.md" target="_blank" class="help-wanted__link">
+                Edit this page on GitHub!
+            </a>
+        </p>
+    </div>
+
+                
+            </div>
+            <div class="col-md-3 col-sm-12 sidebar">
+                
+                    <div class="component-selector">
+    
+    <h5 class="component-selector__subtitle">Find documentation…</h5>
+    <select class="form-control component-selector__control">
+        <option value="/">Overview</option>
+        <optgroup label="Components"></optgroup>
+    </select>
+</div>
+                    
+    <div class="subnavigation hidden-print">
+        <h4 class="subnavigation__title">
+            <a href="..">laminas-progressbar</a>
+        </h4>
+
+        <h5 class="subnavigation__subtitle">Table of Contents</h5>
+
+        <ul class="subnavigation__list">
+            
+
+                
+                
+
+                    
+                    
+                        
+                            <li class="subnavigation__list-item">
+                                <span class="subnavigation__headline">Progress Bars</span>
+                                <ul class="subnavigation__list">
+                                    
+                                        
+    <li class="subnavigation__list-item ">
+        <a href="../intro/" class="subnavigation__link">Intro</a>
+    </li>
+
+                                    
+                                        
+    <li class="subnavigation__list-item ">
+        <a href="../adapters/" class="subnavigation__link">Adapters</a>
+    </li>
+
+                                    
+                                </ul>
+                            </li>
+                        
+                    
+                
+            
+
+                
+                
+
+                    
+                    
+                        
+                            <li class="subnavigation__list-item subnavigation__list-item--active">
+                                <a href="./" class="subnavigation__link">File Upload Handlers</a>
+                            </li>
+                        
+                    
+                
+            
+        </ul>
+    </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <footer class="footer">
+    <div class="container">
+
+        
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a class="footer__button" href="#page-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-7 offset-md-2">
+                <h5>Laminas</h5>
+                <ul>
+                    <li>Laminas Project <a href="https://getlaminas.org/">Components and MVC for Enterprise Applications</a></li>
+                    <li>Mezzio <a href="https://docs.mezzio.dev/">PSR-15 Middleware in Minutes</a></li>
+                    <li>Laminas API Tools: <a href="https://api-tools.getlaminas.org/">Build RESTful APIs in minutes</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+
+            
+            <div class="col-md-4 offset-md-2">
+                <h4 class="footer__headline">Support</h4>
+                <ul class="support__list">
+                    <li class="support__list-item">
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://laminas.dev/chat" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://github.com/laminas" class="support__link" title="Github"><i class="fa fa-github"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://twitter.com/getlaminas" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://getlaminas.org/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://getlaminas.org/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <div class="col-md-3">
+                <h4 class="footer__headline">License</h4>
+                <p>
+                    Code licensed under <a
+                        href="https://github.com/laminas/laminas-progressbar//blob/master/LICENSE.md">BSD 3-Clause</a>.
+                </p>
+            </div>
+
+            
+            <div class="col-md-3">
+                <h4 class="footer__headline">Copyright</h4>
+                <p>
+                    <!--Built with love by the Laminas team with the help of our
+                    <a href="https://github.com/laminas/laminas-progressbar//graphs/contributors">contributors</a>.<br>-->
+                    &copy; 2019-2019 by <a href="https://getlaminas.org/">The Laminas Project</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        let base_url = '..',
+            project  = "components",
+            siteName = 'laminas-progressbar';
+    </script>
+    <script src="/js/scripts.js"></script>
+        <script src="../search/main.js"></script>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Search</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search in laminas-progressbar" id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+</html>
