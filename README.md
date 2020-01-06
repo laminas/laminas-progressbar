@@ -1,6 +1,6 @@
 # laminas-progressbar
 
-[![Build Status](https://travis-ci.org/laminas/laminas-progressbar.svg?branch=master)](https://travis-ci.org/laminas/laminas-progressbar)
+[![Build Status](https://travis-ci.com/laminas/laminas-progressbar.svg?branch=master)](https://travis-ci.com/laminas/laminas-progressbar)
 [![Coverage Status](https://coveralls.io/repos/github/laminas/laminas-progressbar/badge.svg?branch=master)](https://coveralls.io/github/laminas/laminas-progressbar?branch=master)
 
 laminas-progressbar is a component to create and update progress bars in different
