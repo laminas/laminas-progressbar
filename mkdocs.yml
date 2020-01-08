@@ -11,4 +11,3 @@ site_description: "Create and update progress bars in different environments"
 repo_url: 'https://github.com/laminas/laminas-progressbar'
 extra:
     project: Components
-    project_url: 'https://docs.laminas.dev'
