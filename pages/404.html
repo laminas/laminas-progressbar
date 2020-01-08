@@ -6,10 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Create and update progress bars in different environments">  
-    <link rel="canonical" href="https://docs.laminas.dev/intro/">
     <link rel="shortcut icon" href="/img/trademark-laminas-foundation-rgb.svg">
 
-    <title>Intro - laminas-progressbar - Laminas Docs</title>
+    <title>laminas-progressbar - Laminas Docs</title>
 
     <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -59,7 +58,7 @@
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">laminas-progressbar</a>
+            <a href="../.">laminas-progressbar</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -78,8 +77,8 @@
                                 <ul class="subnavigation__list">
                                     
                                         
-    <li class="subnavigation__list-item subnavigation__list-item--active">
-        <a href="./" class="subnavigation__link">Intro</a>
+    <li class="subnavigation__list-item ">
+        <a href="../intro/" class="subnavigation__link">Intro</a>
     </li>
 
                                     
@@ -168,137 +167,21 @@
         <div class="row">
             <div class="col-md-2 col-sm-12">
                 
-    
-
-    
-    
-        <div class="toc">
-            <h6 class="toc__headline">On this page</h6>
-            <ul class="toc__list">
-                
-                    <li class="toc__entry">
-                        <a href="#basic-usage" class="toc__link">Basic Usage</a>
-                    </li>
-                
-                    <li class="toc__entry">
-                        <a href="#persistent-progress" class="toc__link">Persistent Progress</a>
-                    </li>
-                
-            </ul>
-        </div>
-    
-
             </div>
             <div class="col-md-7 col-sm-12 content" role="main" data-spy="scroll" data-target=".toc">
                 
-                    <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        
-            <li class="breadcrumb-item"><a href="">Overview</a></li>
 
-            
-                <li class="breadcrumb-item"><a href="..">laminas-progressbar</a></li>
+<h1 class="content__title">404</h1>
+<blockquote>
+    <h3>Something went wrong!</h3>
+    <p>
+        We're sorry, but the page you are looking for does not exist.
+    </p>
+</blockquote>
 
-                
-                    
-                        
-                        
-                            <li class="breadcrumb-item">Progress Bars</li>
-                        
-                    
-                
-
-                <li class="breadcrumb-item active" aria-current="page">Intro</li>
-            
-        
-    </ol>
-</nav>
+<a href="../." class="btn btn-default" role="button">Go to homepage</a>
 
 
-
-
-
-
-    
-    
-        <h2 class="chapter__headline">Progress Bars</h2>
-    
-
-    <h1 id="progress-bars">Progress Bars</h1>
-<p>laminas-progressbar allows creating and updating progress bars in different
-environments. It consists of a single backend, which outputs the progress
-through one of the multiple adapters. On every update, it takes an absolute
-value and optionally a status message, and then calls the adapter with some
-precalculated values like percentage and estimated time left.</p>
-<h2 id="basic-usage">Basic Usage</h2>
-<p>To use the component, instantiate <code>Laminas\ProgressBar\ProgressBar</code>, providing both
-a a min- and a max-value, and an adapter for providing data output. If you want
-to process a file, you would do something like:</p>
-<pre class=codehilite><code class=language-php>use Laminas\ProgressBar\ProgressBar;
-
-$progressBar = new ProgressBar($adapter, 0, $fileSize);
-
-while (! feof($fp)) {
-    // Do something
-    $progressBar-&gt;update($currentByteCount);
-}
-
-$progressBar-&gt;finish();</code></pre>
-<p>In the first step, an instance of <code>Laminas\ProgressBar\ProgressBar</code> is created,
-with a specific adapter, a min-value of 0 and a max-value of the total filesize.
-Then a file is processed and in every loop the progressbar is updated with the
-current byte count. At the end of the loop, the progressbar status is set to
-finished.</p>
-<p>You can also call the <code>update()</code> method of <code>ProgressBar</code> without arguments;
-doing so recalculates ETA and notifies the adapter. This is useful when there is
-no data update but you want the progressbar to be updated.</p>
-<h2 id="persistent-progress">Persistent Progress</h2>
-<p>If you want the progressbar to be persistent over multiple requests, you can
-give the name of a session namespace as fourth argument to the constructor. In
-that case, the progressbar will not notify the adapter within the constructor,
-but only when you call <code>update()</code> or <code>finish()</code>. Additionally, the current
-value, the status text, and the start time for ETA calculation will be fetched
-in the next request run again.</p>
-
-
-
-
-    <nav>
-    <ul class="page-nav hidden-print">
-
-        
-        <li class="page-nav__item">
-            
-                <a rel="prev" class="page-nav__link page-nav__link--prev" href="..">
-                    <i class="fa fa-chevron-left"></i> Previous
-                </a>
-            
-        </li>
-
-        
-        <li class="page-nav__item">
-            
-                <a rel="next" class="page-nav__link page-nav__link--next" href="../adapters/">
-                    Next <i class="fa fa-chevron-right"></i>
-                </a>
-            
-        </li>
-    </ul>
-</nav>
-
-
-
-
-    <div class="help-wanted">
-        <p>
-            Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/laminas/laminas-progressbar/edit/master/docs/book/intro.md" target="_blank" class="help-wanted__link">
-                Edit this page on GitHub!
-            </a>
-        </p>
-    </div>
-
-                
             </div>
             <div class="col-md-3 col-sm-12 sidebar">
                 
@@ -313,7 +196,7 @@ in the next request run again.</p>
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">laminas-progressbar</a>
+            <a href="../.">laminas-progressbar</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -332,8 +215,8 @@ in the next request run again.</p>
                                 <ul class="subnavigation__list">
                                     
                                         
-    <li class="subnavigation__list-item subnavigation__list-item--active">
-        <a href="./" class="subnavigation__link">Intro</a>
+    <li class="subnavigation__list-item ">
+        <a href="../intro/" class="subnavigation__link">Intro</a>
     </li>
 
                                     

@@ -20,7 +20,7 @@
     <div class="container">
         
         <a class="logo-link navbar-brand offset-md-2" href="https://getlaminas.org/" data-tooltip data-placement="bottom" title="Go to the Laminas homepage">
-            <img src="../img/laminas-foundation-white.svg" height="28" alt="Lamnias">
+            <img src="../img/laminas-foundation-white.svg" height="28" alt="Laminas">
         </a>
         <a class="navbar-title" href="https://docs.laminas.dev/" data-tooltip data-placement="bottom" title="Go to the Laminas Documentation">
             Documentation
@@ -36,13 +36,17 @@
             
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="https://getlaminas.org/about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://getlaminas.org/blog" class="nav-link">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://docs.laminas.dev" class="nav-link">All Docs</a>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
+                            All Docs
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="https://docs.laminas.dev/components">Components</a>
+                            <a class="dropdown-item" href="https://docs.mezzio.dev/">Mezzio</a>
+                            <a class="dropdown-item" href="https://api-tools.getlaminas.org/docs">API Tools</a>
+                            <a class="dropdown-item" href="https://docs.laminas.dev/mvc">MVC</a>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a href="https://getlaminas.org/participate" class="nav-link">Community</a>
@@ -395,39 +399,36 @@ method on every update with a JSON object, containing the following parameters:<
 </table></div>
 <h3>Basic example for the client-side</h3>
 <p>This example illustrates a basic setup of HTML, CSS, and JavaScript for the <code>JsPush</code> adapter</p>
-<div class=md-fenced-code-tabs id=tab-tab-group-0><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-0-0_html-panel role=tab id=tab-group-0-0_html-tab data-toggle=tab data-lang=html aria-controls=tab-group-0-0_html-panel aria-selected=true>Html</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-1_css-panel role=tab id=tab-group-0-1_css-tab data-toggle=tab data-lang=css aria-controls=tab-group-0-1_css-panel aria-selected=false>Css</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-2_javascript-panel role=tab id=tab-group-0-2_javascript-tab data-toggle=tab data-lang=javascript aria-controls=tab-group-0-2_javascript-panel aria-selected=false>Javascript</a></li></ul><div class=tab-content><div id=tab-group-0-0_html-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-0-0_html-tab><div class=codehilite><pre><span></span><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&quot;laminas-progressbar-container&quot;</span><span class=p>&gt;</span>
-    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&quot;laminas-progressbar-done&quot;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
-<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+<div class=md-fenced-code-tabs id=tab-tab-group-0><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-0-0_html-panel role=tab id=tab-group-0-0_html-tab data-toggle=tab data-lang=html aria-controls=tab-group-0-0_html-panel aria-selected=true>Html</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-1_css-panel role=tab id=tab-group-0-1_css-tab data-toggle=tab data-lang=css aria-controls=tab-group-0-1_css-panel aria-selected=false>Css</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-2_javascript-panel role=tab id=tab-group-0-2_javascript-tab data-toggle=tab data-lang=javascript aria-controls=tab-group-0-2_javascript-panel aria-selected=false>Javascript</a></li></ul><div class=tab-content><div id=tab-group-0-0_html-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-0-0_html-tab><pre class=codehilite><code class=language-html>&lt;div id=&quot;laminas-progressbar-container&quot;&gt;
+    &lt;div id=&quot;laminas-progressbar-done&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
 
-<span class=p>&lt;</span><span class=nt>iframe</span> <span class=na>src</span><span class=o>=</span><span class=s>&quot;long-running-process.php&quot;</span> <span class=na>id</span><span class=o>=</span><span class=s>&quot;long-running-process&quot;</span><span class=p>&gt;&lt;/</span><span class=nt>iframe</span><span class=p>&gt;</span>
-</pre></div></div><div id=tab-group-0-1_css-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-1_css-tab><div class=codehilite><pre><span></span><span class=p>#</span><span class=nn>long-running-process</span> <span class=p>{</span>
-    <span class=k>position</span><span class=p>:</span> <span class=kc>absolute</span><span class=p>;</span>
-    <span class=k>left</span><span class=p>:</span> <span class=mi>-100</span><span class=kt>px</span><span class=p>;</span>
-    <span class=k>top</span><span class=p>:</span> <span class=mi>-100</span><span class=kt>px</span><span class=p>;</span>
+&lt;iframe src=&quot;long-running-process.php&quot; id=&quot;long-running-process&quot;&gt;&lt;/iframe&gt;</code></pre></div><div id=tab-group-0-1_css-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-1_css-tab><pre class=codehilite><code class=language-css>#long-running-process {
+    position: absolute;
+    left: -100px;
+    top: -100px;
 
-    <span class=k>width</span><span class=p>:</span> <span class=mi>1</span><span class=kt>px</span><span class=p>;</span>
-    <span class=k>height</span><span class=p>:</span> <span class=mi>1</span><span class=kt>px</span><span class=p>;</span>
-<span class=p>}</span>
+    width: 1px;
+    height: 1px;
+}
 
-<span class=p>#</span><span class=nn>laminas-progressbar-container</span> <span class=p>{</span>
-    <span class=k>width</span><span class=p>:</span> <span class=mi>100</span><span class=kt>px</span><span class=p>;</span>
-    <span class=k>height</span><span class=p>:</span> <span class=mi>30</span><span class=kt>px</span><span class=p>;</span>
+#laminas-progressbar-container {
+    width: 100px;
+    height: 30px;
 
-    <span class=k>border</span><span class=p>:</span> <span class=mi>1</span><span class=kt>px</span> <span class=kc>solid</span> <span class=mh>#000000</span><span class=p>;</span>
-    <span class=k>background-color</span><span class=p>:</span> <span class=mh>#ffffff</span><span class=p>;</span>
-<span class=p>}</span>
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
 
-<span class=p>#</span><span class=nn>laminas-progressbar-done</span> <span class=p>{</span>
-    <span class=k>width</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
-    <span class=k>height</span><span class=p>:</span> <span class=mi>30</span><span class=kt>px</span><span class=p>;</span>
+#laminas-progressbar-done {
+    width: 0;
+    height: 30px;
 
-    <span class=k>background-color</span><span class=p>:</span> <span class=mh>#000000</span><span class=p>;</span>
-<span class=p>}</span>
-</pre></div></div><div id=tab-group-0-2_javascript-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-2_javascript-tab><div class=codehilite><pre><span></span><span class=kd>function</span> <span class=nx>Laminas</span><span class=err>\</span><span class=nx>ProgressBar</span><span class=err>\</span><span class=nx>Update</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span>
-<span class=p>{</span>
-    <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;laminas-progressbar-done&#39;</span><span class=p>).</span><span class=nx>style</span><span class=p>.</span><span class=nx>width</span> <span class=o>=</span> <span class=nx>data</span><span class=p>.</span><span class=nx>percent</span> <span class=o>+</span> <span class=s1>&#39;%&#39;</span><span class=p>;</span>
-<span class=p>}</span>
-</pre></div></div></div></div>
+    background-color: #000000;
+}</code></pre></div><div id=tab-group-0-2_javascript-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-2_javascript-tab><pre class=codehilite><code class=language-javascript>function Laminas\ProgressBar\Update(data)
+{
+    document.getElementById('laminas-progressbar-done').style.width = data.percent + '%';
+}</code></pre></div></div></div>
 
 <p>This will create a container with a black border and a block which indicates the
 current process. You should not hide the <code>iframe</code> or <code>object</code> using <code>display: none;</code>,
@@ -602,9 +603,10 @@ the constructor. The available options are:</p>
             <div class="col-md-7 offset-md-2">
                 <h5>Laminas</h5>
                 <ul>
-                    <li>Laminas Project <a href="https://getlaminas.org/">Components and MVC for Enterprise Applications</a></li>
-                    <li>Mezzio <a href="https://docs.mezzio.dev/">PSR-15 Middleware in Minutes</a></li>
-                    <li>Laminas API Tools: <a href="https://api-tools.getlaminas.org/">Build RESTful APIs in minutes</a></li>
+                    <li>Laminas Project <a href="https://getlaminas.org/">The new foundation for the community-supported, open source continuation of Zend Framework</a></li>
+                    <li>Laminas Components and MVC <a href="https://docs.laminas.dev/">Components and MVC for enterprise applications</a></li>
+                    <li>Mezzio <a href="https://docs.mezzio.dev/">PSR-15 middleware in minutes</a></li>
+                    <li>Laminas API Tools <a href="https://api-tools.getlaminas.org/">Build RESTful APIs in minutes</a></li>
                 </ul>
             </div>
         </div>
@@ -641,7 +643,7 @@ the constructor. The available options are:</p>
                 <h4 class="footer__headline">License</h4>
                 <p>
                     Code licensed under <a
-                        href="https://github.com/laminas/laminas-progressbar//blob/master/LICENSE.md">BSD 3-Clause</a>.
+                        href="https://github.com/laminas/laminas-progressbar/blob/master/LICENSE.md">BSD 3-Clause</a>.
                 </p>
             </div>
 
@@ -650,8 +652,8 @@ the constructor. The available options are:</p>
                 <h4 class="footer__headline">Copyright</h4>
                 <p>
                     <!--Built with love by the Laminas team with the help of our
-                    <a href="https://github.com/laminas/laminas-progressbar//graphs/contributors">contributors</a>.<br>-->
-                    &copy; 2019-2019 by <a href="https://getlaminas.org/">The Laminas Project</a>.
+                    <a href="https://github.com/laminas/laminas-progressbar/graphs/contributors">contributors</a>.<br>-->
+                    &copy; 2019-2020 by <a href="https://getlaminas.org/">The Laminas Project</a>.
                 </p>
             </div>
         </div>
