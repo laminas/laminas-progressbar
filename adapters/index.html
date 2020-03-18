@@ -457,12 +457,16 @@ method on every update with a JSON object, containing the following parameters:<
 </tbody>
 </table></div>
 <h3>Basic example for the client-side</h3>
-<p>This example illustrates a basic setup of HTML, CSS, and JavaScript for the <code>JsPush</code> adapter</p>
-<div class=md-fenced-code-tabs id=tab-tab-group-0><ul class="nav nav-tabs"><li class=nav-item><a class="nav-link active" href=#tab-group-0-0_html-panel role=tab id=tab-group-0-0_html-tab data-toggle=tab data-lang=html aria-controls=tab-group-0-0_html-panel aria-selected=true>Html</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-1_css-panel role=tab id=tab-group-0-1_css-tab data-toggle=tab data-lang=css aria-controls=tab-group-0-1_css-panel aria-selected=false>Css</a></li><li class=nav-item><a class="nav-link " href=#tab-group-0-2_javascript-panel role=tab id=tab-group-0-2_javascript-tab data-toggle=tab data-lang=javascript aria-controls=tab-group-0-2_javascript-panel aria-selected=false>Javascript</a></li></ul><div class=tab-content><div id=tab-group-0-0_html-panel class="tab-pane show active" role=tabpanel aria-labelledby=tab-group-0-0_html-tab><pre class=codehilite><code class=language-html>&lt;div id=&quot;laminas-progressbar-container&quot;&gt;
+<p>The following example illustrates a basic setup of HTML, CSS, and JavaScript for
+the <code>JsPush</code> adapter.</p>
+<h4>HTML</h4>
+<pre class=codehilite><code class=language-html>&lt;div id=&quot;laminas-progressbar-container&quot;&gt;
     &lt;div id=&quot;laminas-progressbar-done&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;iframe src=&quot;long-running-process.php&quot; id=&quot;long-running-process&quot;&gt;&lt;/iframe&gt;</code></pre></div><div id=tab-group-0-1_css-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-1_css-tab><pre class=codehilite><code class=language-css>#long-running-process {
+&lt;iframe src=&quot;long-running-process.php&quot; id=&quot;long-running-process&quot;&gt;&lt;/iframe&gt;</code></pre>
+<h4>CSS</h4>
+<pre class=codehilite><code class=language-css>#long-running-process {
     position: absolute;
     left: -100px;
     top: -100px;
@@ -484,11 +488,12 @@ method on every update with a JSON object, containing the following parameters:<
     height: 30px;
 
     background-color: #000000;
-}</code></pre></div><div id=tab-group-0-2_javascript-panel class="tab-pane " role=tabpanel aria-labelledby=tab-group-0-2_javascript-tab><pre class=codehilite><code class=language-javascript>function Laminas\ProgressBar\Update(data)
+}</code></pre>
+<h4>JavaScript</h4>
+<pre class=codehilite><code class=language-javascript>function Laminas\ProgressBar\Update(data)
 {
     document.getElementById('laminas-progressbar-done').style.width = data.percent + '%';
-}</code></pre></div></div></div>
-
+}</code></pre>
 <p>This will create a container with a black border and a block which indicates the
 current process. You should not hide the <code>iframe</code> or <code>object</code> using <code>display: none;</code>,
 as some browsers (such as Safari 2) will not load the actual content then.</p>
