@@ -78,7 +78,10 @@ text          | The optional status message, if given.
 
 ### Basic example for the client-side
 
-This example illustrates a basic setup of HTML, CSS, and JavaScript for the `JsPush` adapter
+The following example illustrates a basic setup of HTML, CSS, and JavaScript for
+the `JsPush` adapter.
+
+#### HTML
 
 ```html
 <div id="laminas-progressbar-container">
@@ -87,6 +90,8 @@ This example illustrates a basic setup of HTML, CSS, and JavaScript for the `JsP
 
 <iframe src="long-running-process.php" id="long-running-process"></iframe>
 ```
+
+#### CSS
 
 ```css
 #long-running-process {
@@ -113,6 +118,8 @@ This example illustrates a basic setup of HTML, CSS, and JavaScript for the `JsP
     background-color: #000000;
 }
 ```
+
+#### JavaScript
 
 ```javascript
 function Laminas\ProgressBar\Update(data)
