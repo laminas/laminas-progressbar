@@ -60,6 +60,6 @@
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
     },
     "replace": {
-        "zendframework/zend-progressbar": "self.version"
+        "zendframework/zend-progressbar": "^2.7.0"
     }
 }
