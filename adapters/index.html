@@ -460,13 +460,14 @@ method on every update with a JSON object, containing the following parameters:<
 <p>The following example illustrates a basic setup of HTML, CSS, and JavaScript for
 the <code>JsPush</code> adapter.</p>
 <h4>HTML</h4>
-<pre class=codehilite><code class=language-html>&lt;div id=&quot;laminas-progressbar-container&quot;&gt;
-    &lt;div id=&quot;laminas-progressbar-done&quot;&gt;&lt;/div&gt;
+<pre class="highlight"><code class="language-html">&lt;div id="laminas-progressbar-container"&gt;
+    &lt;div id="laminas-progressbar-done"&gt;&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;iframe src=&quot;long-running-process.php&quot; id=&quot;long-running-process&quot;&gt;&lt;/iframe&gt;</code></pre>
+&lt;iframe src="long-running-process.php" id="long-running-process"&gt;&lt;/iframe&gt;</code></pre>
+
 <h4>CSS</h4>
-<pre class=codehilite><code class=language-css>#long-running-process {
+<pre class="highlight"><code class="language-css">#long-running-process {
     position: absolute;
     left: -100px;
     top: -100px;
@@ -489,11 +490,13 @@ the <code>JsPush</code> adapter.</p>
 
     background-color: #000000;
 }</code></pre>
+
 <h4>JavaScript</h4>
-<pre class=codehilite><code class=language-javascript>function Laminas\ProgressBar\Update(data)
+<pre class="highlight"><code class="language-javascript">function Laminas\ProgressBar\Update(data)
 {
     document.getElementById('laminas-progressbar-done').style.width = data.percent + '%';
 }</code></pre>
+
 <p>This will create a container with a black border and a block which indicates the
 current process. You should not hide the <code>iframe</code> or <code>object</code> using <code>display: none;</code>,
 as some browsers (such as Safari 2) will not load the actual content then.</p>

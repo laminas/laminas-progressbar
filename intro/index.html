@@ -293,7 +293,7 @@ precalculated values like percentage and estimated time left.</p>
 <p>To use the component, instantiate <code>Laminas\ProgressBar\ProgressBar</code>, providing both
 a a min- and a max-value, and an adapter for providing data output. If you want
 to process a file, you would do something like:</p>
-<pre class=codehilite><code class=language-php>use Laminas\ProgressBar\ProgressBar;
+<pre class="highlight"><code class="language-php">use Laminas\ProgressBar\ProgressBar;
 
 $progressBar = new ProgressBar($adapter, 0, $fileSize);
 
@@ -303,6 +303,7 @@ while (! feof($fp)) {
 }
 
 $progressBar-&gt;finish();</code></pre>
+
 <p>In the first step, an instance of <code>Laminas\ProgressBar\ProgressBar</code> is created,
 with a specific adapter, a min-value of 0 and a max-value of the total filesize.
 Then a file is processed and in every loop the progressbar is updated with the
