@@ -11,9 +11,6 @@ namespace LaminasTest\ProgressBar\Adapter;
 use LaminasTest\ProgressBar\TestAsset\JsPullStub;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group      Laminas_ProgressBar
- */
 class JsPullTest extends TestCase
 {
     public function testJson()

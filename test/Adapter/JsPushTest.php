@@ -11,9 +11,6 @@ namespace LaminasTest\ProgressBar\Adapter;
 use LaminasTest\ProgressBar\TestAsset\JsPushStub;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group      Laminas_ProgressBar
- */
 class JsPushTest extends TestCase
 {
     public function testJson()

@@ -12,17 +12,14 @@ use Laminas\ProgressBar\Adapter;
 use Laminas\Stdlib\StringUtils;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group      Laminas_ProgressBar
- */
 class ConsoleTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         stream_wrapper_register("laminasprogressbaradapterconsole", MockupStream::class);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         stream_wrapper_unregister('laminasprogressbaradapterconsole');
     }
@@ -42,7 +39,7 @@ class ConsoleTest extends TestCase
     {
         $adapter = new ConsoleStub();
 
-        $this->assertInternalType('resource', $adapter->getOutputStream());
+        $this->assertIsResource($adapter->getOutputStream());
 
         $metaData = stream_get_meta_data($adapter->getOutputStream());
         $this->assertEquals('php://stdout', $metaData['uri']);
@@ -52,7 +49,7 @@ class ConsoleTest extends TestCase
     {
         $adapter = new ConsoleStub(['outputStream' => 'php://stdout']);
 
-        $this->assertInternalType('resource', $adapter->getOutputStream());
+        $this->assertIsResource($adapter->getOutputStream());
 
         $metaData = stream_get_meta_data($adapter->getOutputStream());
         $this->assertEquals('php://stdout', $metaData['uri']);
@@ -62,7 +59,7 @@ class ConsoleTest extends TestCase
     {
         $adapter = new ConsoleStub(['outputStream' => 'php://stderr']);
 
-        $this->assertInternalType('resource', $adapter->getOutputStream());
+        $this->assertIsResource($adapter->getOutputStream());
 
         $metaData = stream_get_meta_data($adapter->getOutputStream());
         $this->assertEquals('php://stderr', $metaData['uri']);
@@ -97,7 +94,7 @@ class ConsoleTest extends TestCase
         $adapter = new ConsoleStub(['width' => 30]);
         $adapter->notify(50, 100, .5, 0, null, null);
 
-        $this->assertContains(' 50% [#####-----]', $adapter->getLastOutput());
+        $this->assertStringContainsString(' 50% [#####-----]', $adapter->getLastOutput());
     }
 
     public function testBarOnly()
@@ -141,7 +138,7 @@ class ConsoleTest extends TestCase
         );
         $adapter->notify(10, 100, .1, 0, null, null);
 
-        $this->assertContains('[##>---------------]', $adapter->getLastOutput());
+        $this->assertStringContainsString('[##>---------------]', $adapter->getLastOutput());
     }
 
     public function testBarStyleIndicatorWide()
@@ -151,7 +148,7 @@ class ConsoleTest extends TestCase
         );
         $adapter->notify(10, 100, .1, 0, null, null);
 
-        $this->assertContains('[##[]--------------]', $adapter->getLastOutput());
+        $this->assertStringContainsString('[##[]--------------]', $adapter->getLastOutput());
     }
 
     public function testBarStyleLeftRightNormal()
@@ -161,7 +158,7 @@ class ConsoleTest extends TestCase
         );
         $adapter->notify(10, 100, .1, 0, null, null);
 
-        $this->assertContains('[++                ]', $adapter->getLastOutput());
+        $this->assertStringContainsString('[++                ]', $adapter->getLastOutput());
     }
 
     public function testBarStyleLeftRightWide()
@@ -171,7 +168,7 @@ class ConsoleTest extends TestCase
         );
         $adapter->notify(10, 100, .1, 0, null, null);
 
-        $this->assertContains('[+-=-=-=-=-=-=-=-=-]', $adapter->getLastOutput());
+        $this->assertStringContainsString('[+-=-=-=-=-=-=-=-=-]', $adapter->getLastOutput());
     }
 
     public function testBarStyleLeftIndicatorRightWide()
@@ -185,7 +182,7 @@ class ConsoleTest extends TestCase
         ]);
         $adapter->notify(10, 100, .1, 0, null, null);
 
-        $this->assertContains('[+-[]=-=-=-=-=-=-=-]', $adapter->getLastOutput());
+        $this->assertStringContainsString('[+-[]=-=-=-=-=-=-=-]', $adapter->getLastOutput());
     }
 
     public function testEtaDelayDisplay()
@@ -193,7 +190,7 @@ class ConsoleTest extends TestCase
         $adapter = new ConsoleStub(['width' => 100, 'elements' => [Adapter\Console::ELEMENT_ETA]]);
 
         $adapter->notify(33, 100, .33, 3, null, null);
-        $this->assertContains('            ', $adapter->getLastOutput());
+        $this->assertStringContainsString('            ', $adapter->getLastOutput());
 
         $adapter->notify(66, 100, .66, 6, 3, null);
         $result = preg_match('#ETA 00:00:(\d)+#', $adapter->getLastOutput(), $match);
@@ -207,7 +204,7 @@ class ConsoleTest extends TestCase
 
         $adapter->notify(1, 100005, .001, 5, 100000, null);
 
-        $this->assertContains('ETA ??:??:??', $adapter->getLastOutput());
+        $this->assertStringContainsString('ETA ??:??:??', $adapter->getLastOutput());
     }
 
     public function testTextElementDefaultLength()
@@ -217,7 +214,7 @@ class ConsoleTest extends TestCase
         );
         $adapter->notify(0, 100, 0, 0, null, 'foobar');
 
-        $this->assertContains('foobar               [', $adapter->getLastOutput());
+        $this->assertStringContainsString('foobar               [', $adapter->getLastOutput());
     }
 
     public function testTextElementCustomLength()
@@ -229,7 +226,7 @@ class ConsoleTest extends TestCase
         ]);
         $adapter->notify(0, 100, 0, 0, null, 'foobar');
 
-        $this->assertContains('foobar     [', $adapter->getLastOutput());
+        $this->assertStringContainsString('foobar     [', $adapter->getLastOutput());
     }
 
     public function testSetOutputStreamOpen()
@@ -271,7 +268,7 @@ class ConsoleTest extends TestCase
     {
         $adapter = new Adapter\Console();
         $resource = $adapter->getOutputStream();
-        $this->assertInternalType('resource', $resource);
+        $this->assertIsResource($resource);
     }
 
     public function testFinishEol()

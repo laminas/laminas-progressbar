@@ -13,9 +13,6 @@ use LaminasTest\ProgressBar\TestAsset\MockUp;
 use LaminasTest\ProgressBar\TestAsset\Stub;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group      Laminas_ProgressBar
- */
 class ProgressBarTest extends TestCase
 {
     public function testGreaterMin()
