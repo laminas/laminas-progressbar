@@ -10,6 +10,7 @@ namespace Laminas\ProgressBar\Adapter;
 
 use Laminas\Stdlib\ErrorHandler;
 use Laminas\Stdlib\StringUtils;
+use ValueError;
 
 /**
  * Laminas\ProgressBar\Adapter\Console offers a text-based progressbar for console
@@ -168,12 +169,18 @@ class Console extends AbstractAdapter
      */
     public function setOutputStream($resource)
     {
+        $fileOpenError = null;
         ErrorHandler::start();
-        $stream = fopen($resource, 'w');
-        $error  = ErrorHandler::stop();
+        try {
+            $stream = fopen($resource, 'w');
+        } catch (ValueError $fileOpenError) {
+            $stream = false;
+        }
+        $error = ErrorHandler::stop();
 
         if ($stream === false) {
-            throw new Exception\RuntimeException('Unable to open stream', 0, $error);
+            $previous = $fileOpenError ?: $error;
+            throw new Exception\RuntimeException('Unable to open stream', 0, $previous);
         }
 
         if ($this->outputStream !== null) {
