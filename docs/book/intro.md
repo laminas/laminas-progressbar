@@ -6,8 +6,7 @@ through one of the multiple adapters. On every update, it takes an absolute
 value and optionally a status message, and then calls the adapter with some
 precalculated values like percentage and estimated time left.
 
-Basic Usage
------------
+## Basic Usage
 
 To use the component, instantiate `Laminas\ProgressBar\ProgressBar`, providing both
 a a min- and a max-value, and an adapter for providing data output. If you want
@@ -36,8 +35,7 @@ You can also call the `update()` method of `ProgressBar` without arguments;
 doing so recalculates ETA and notifies the adapter. This is useful when there is
 no data update but you want the progressbar to be updated.
 
-Persistent Progress
--------------------
+## Persistent Progress
 
 If you want the progressbar to be persistent over multiple requests, you can
 give the name of a session namespace as fourth argument to the constructor. In
