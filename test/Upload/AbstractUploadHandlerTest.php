@@ -13,9 +13,6 @@ use Laminas\ProgressBar\ProgressBar;
 use Laminas\ProgressBar\Upload\AbstractUploadHandler;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @group      Laminas_ProgressBar
- */
 class AbstractUploadHandlerTest extends TestCase
 {
     /**
