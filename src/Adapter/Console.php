@@ -2,6 +2,7 @@
 
 namespace Laminas\ProgressBar\Adapter;
 
+use Laminas\ProgressBar\Adapter\Exception\RuntimeException;
 use Laminas\Stdlib\ErrorHandler;
 use Laminas\Stdlib\StringUtils;
 use ValueError;
@@ -164,13 +165,14 @@ class Console extends AbstractAdapter
     public function setOutputStream($resource)
     {
         $fileOpenError = null;
-        ErrorHandler::start();
+        ErrorHandler::start(E_DEPRECATED);
         try {
             $stream = fopen($resource, 'w');
         } catch (ValueError $fileOpenError) {
             $stream = false;
+        } finally {
+            $error = ErrorHandler::stop();
         }
-        $error = ErrorHandler::stop();
 
         if ($stream === false) {
             $previous = $fileOpenError ?: $error;

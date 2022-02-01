@@ -19,12 +19,12 @@
         "sort-packages": true
     },
     "require": {
-        "php": "^7.3 || ~8.0.0",
+        "php": "^7.3 || ~8.0.0 || ~8.1.0",
         "laminas/laminas-stdlib": "^3.2.1"
     },
     "require-dev": {
         "laminas/laminas-coding-standard": "~1.0.0",
-        "laminas/laminas-json": "^2.6.1",
+        "laminas/laminas-json": "^3.0.0",
         "laminas/laminas-session": "^2.8.5",
         "phpunit/phpunit": "^9.3"
     },
