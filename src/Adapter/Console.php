@@ -160,7 +160,6 @@ class Console extends AbstractAdapter
      *
      * @param  string $resource
      * @throws Exception\RuntimeException
-     * @return \Laminas\ProgressBar\Adapter\Console
      */
     public function setOutputStream($resource)
     {
