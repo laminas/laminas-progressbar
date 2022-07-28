@@ -80,6 +80,13 @@ class ProgressBarTest extends TestCase
         $this->assertEquals(null, $progressBar->getTimeRemaining());
     }
 
+    public function testMissingTextIsNotNull()
+    {
+        $progressBar = $this->_getProgressBar(0, 100);
+
+        $this->assertSame('', $progressBar->getText());
+    }
+
     // @codingStandardsIgnoreStart
     protected function _getProgressBar($min, $max, $persistenceNamespace = null)
     {
