@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88f01423d334e77c2b583ecea5f2dce7",
+    "content-hash": "c3db46ed95b61a3c22b8af815fa0756a",
     "packages": [
         {
             "name": "laminas/laminas-stdlib",
@@ -2496,7 +2496,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3 || ~8.0.0 || ~8.1.0"
+        "php": "~8.0.0 || ~8.1.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
