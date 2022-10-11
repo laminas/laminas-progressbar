@@ -25,8 +25,8 @@
     "require-dev": {
         "laminas/laminas-coding-standard": "~1.0.0",
         "laminas/laminas-json": "^3.3",
-        "laminas/laminas-session": "^2.12",
-        "phpunit/phpunit": "^9.3"
+        "laminas/laminas-session": "^2.13",
+        "phpunit/phpunit": "^9.5.25"
     },
     "suggest": {
         "laminas/laminas-json": "Laminas\\Json component",
