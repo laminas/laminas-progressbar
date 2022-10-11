@@ -2,7 +2,7 @@
 
 namespace Laminas\ProgressBar\Adapter;
 
-use Laminas\Json\Json;
+use function json_encode;
 
 /**
  * Laminas\ProgressBar\Adapter\JsPush offers a simple method for updating a
@@ -73,7 +73,7 @@ class JsPush extends AbstractAdapter
         ];
 
         $data = '<script type="text/javascript">'
-              . 'parent.' . $this->updateMethodName . '(' . Json::encode($arguments) . ');'
+              . 'parent.' . $this->updateMethodName . '(' . json_encode($arguments) . ');'
               . '</script>';
 
         // Output the data

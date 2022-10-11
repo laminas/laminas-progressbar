@@ -2,7 +2,7 @@
 
 namespace Laminas\ProgressBar\Adapter;
 
-use Laminas\Json\Json;
+use function json_encode;
 
 /**
  * Laminas\ProgressBar\Adapter\JsPull offers a simple method for updating a
@@ -51,7 +51,7 @@ class JsPull extends AbstractAdapter
             'finished'      => false
         ];
 
-        $data = Json::encode($arguments);
+        $data = json_encode($arguments);
 
         // Output the data
         $this->_outputData($data);
@@ -64,7 +64,7 @@ class JsPull extends AbstractAdapter
      */
     public function finish()
     {
-        $data = Json::encode(['finished' => true]);
+        $data = json_encode(['finished' => true]);
 
         $this->_outputData($data);
     }
