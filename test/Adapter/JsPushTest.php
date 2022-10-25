@@ -5,6 +5,8 @@ namespace LaminasTest\ProgressBar\Adapter;
 use LaminasTest\ProgressBar\TestAsset\JsPushStub;
 use PHPUnit\Framework\TestCase;
 
+use const JSON_THROW_ON_ERROR;
+
 class JsPushTest extends TestCase
 {
     public function testJson()
@@ -19,7 +21,7 @@ class JsPushTest extends TestCase
             . preg_quote('Laminas\\ProgressBar\\ProgressBar\\Update') . '\((.*?)\);</script>#', $output, $result);
         $this->assertEquals(1, $matches);
 
-        $data = json_decode($result[1], true);
+        $data = json_decode($result[1], true, JSON_THROW_ON_ERROR);
 
         $this->assertEquals(0, $data['current']);
         $this->assertEquals(2, $data['max']);

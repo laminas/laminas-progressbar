@@ -4,6 +4,8 @@ namespace Laminas\ProgressBar\Adapter;
 
 use function json_encode;
 
+use const JSON_THROW_ON_ERROR;
+
 /**
  * Laminas\ProgressBar\Adapter\JsPull offers a simple method for updating a
  * progressbar in a browser.
@@ -51,7 +53,7 @@ class JsPull extends AbstractAdapter
             'finished'      => false
         ];
 
-        $data = json_encode($arguments);
+        $data = json_encode($arguments, JSON_THROW_ON_ERROR);
 
         // Output the data
         $this->_outputData($data);
@@ -64,7 +66,7 @@ class JsPull extends AbstractAdapter
      */
     public function finish()
     {
-        $data = json_encode(['finished' => true]);
+        $data = json_encode(['finished' => true], JSON_THROW_ON_ERROR);
 
         $this->_outputData($data);
     }

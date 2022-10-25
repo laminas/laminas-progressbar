@@ -4,6 +4,8 @@ namespace Laminas\ProgressBar\Adapter;
 
 use function json_encode;
 
+use const JSON_THROW_ON_ERROR;
+
 /**
  * Laminas\ProgressBar\Adapter\JsPush offers a simple method for updating a
  * progressbar in a browser.
@@ -73,7 +75,7 @@ class JsPush extends AbstractAdapter
         ];
 
         $data = '<script type="text/javascript">'
-              . 'parent.' . $this->updateMethodName . '(' . json_encode($arguments) . ');'
+              . 'parent.' . $this->updateMethodName . '(' . json_encode($arguments, JSON_THROW_ON_ERROR) . ');'
               . '</script>';
 
         // Output the data
