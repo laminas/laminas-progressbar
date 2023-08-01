@@ -63,7 +63,7 @@ class JsPush extends AbstractAdapter
      * @param  float   $max           Max progress value
      * @param  float   $percent       Current percent value
      * @param  int $timeTaken     Taken time in seconds
-     * @param  int $timeRemaining Remaining time in seconds
+     * @param  int|null $timeRemaining Remaining time in seconds
      * @param  string  $text          Status text
      * @return void
      */
