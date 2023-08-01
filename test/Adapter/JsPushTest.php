@@ -1,9 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\ProgressBar\Adapter;
 
 use LaminasTest\ProgressBar\TestAsset\JsPushStub;
 use PHPUnit\Framework\TestCase;
+
+use function json_decode;
+use function preg_match;
+use function preg_quote;
 
 use const JSON_THROW_ON_ERROR;
 

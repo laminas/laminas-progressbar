@@ -1,22 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\ProgressBar\TestAsset;
 
-class JsPushStub extends \Laminas\ProgressBar\Adapter\JsPush
-{
-    // @codingStandardsIgnoreStart
-    protected $_lastOutput = null;
-    // @codingStandardsIgnoreEnd
+use Laminas\ProgressBar\Adapter\JsPush;
 
-    public function getLastOutput()
+class JsPushStub extends JsPush
+{
+    private string $lastOutput;
+
+    public function getLastOutput(): string
     {
-        return $this->_lastOutput;
+        return $this->lastOutput;
     }
 
     // @codingStandardsIgnoreStart
     protected function _outputData($data)
     {
         // @codingStandardsIgnoreEnd
-        $this->_lastOutput = $data;
+        $this->lastOutput = $data;
     }
 }

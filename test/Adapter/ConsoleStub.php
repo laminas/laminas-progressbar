@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\ProgressBar\Adapter;
 
 use Laminas\ProgressBar\Adapter;
 
 class ConsoleStub extends Adapter\Console
 {
-    protected $lastOutput = null;
+    private string $lastOutput;
 
-    public function getLastOutput()
+    public function getLastOutput(): string
     {
         return $this->lastOutput;
     }
@@ -20,7 +22,7 @@ class ConsoleStub extends Adapter\Console
         $this->lastOutput = $data;
     }
 
-    public function getCharset()
+    public function getCharset(): string
     {
         return $this->charset;
     }

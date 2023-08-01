@@ -1,18 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\ProgressBar\TestAsset;
 
-class MockUp extends \Laminas\ProgressBar\Adapter\AbstractAdapter
+use Laminas\ProgressBar\Adapter\AbstractAdapter;
+
+class MockUp extends AbstractAdapter
 {
     // @codingStandardsIgnoreStart
-    protected $_current;
-    protected $_max;
-    protected $_percent;
-    protected $_timeTaken;
-    protected $_timeRemaining;
-    protected $_text;
+    protected float $_current;
+    protected float $_max;
+    protected float $_percent;
+    protected int $_timeTaken;
+    protected int|null $_timeRemaining;
+    protected string $_text;
     // @codingStandardsIgnoreEnd
 
+    /** @inheritDoc */
     public function notify($current, $max, $percent, $timeTaken, $timeRemaining, $text)
     {
         $this->_current       = $current;
@@ -27,32 +32,32 @@ class MockUp extends \Laminas\ProgressBar\Adapter\AbstractAdapter
     {
     }
 
-    public function getCurrent()
+    public function getCurrent(): float
     {
         return $this->_current;
     }
 
-    public function getMax()
+    public function getMax(): float
     {
         return $this->_max;
     }
 
-    public function getPercent()
+    public function getPercent(): float
     {
         return $this->_percent;
     }
 
-    public function getTimeTaken()
+    public function getTimeTaken(): int
     {
         return $this->_timeTaken;
     }
 
-    public function getTimeRemaining()
+    public function getTimeRemaining(): int|null
     {
         return $this->_timeRemaining;
     }
 
-    public function getText()
+    public function getText(): string
     {
         return $this->_text;
     }
