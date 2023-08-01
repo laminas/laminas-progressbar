@@ -8,4 +8,5 @@
 /mkdocs.yml export-ignore
 /phpcs.xml.dist export-ignore
 /phpunit.xml.dist export-ignore
+/renovate.json export-ignore
 /test/ export-ignore
