@@ -23,7 +23,7 @@ class JsPull extends AbstractAdapter
      * Set whether to exit after json data send or not
      *
      * @param  bool $exitAfterSend
-     * @return JsPull
+     * @return void
      */
     public function setExitAfterSend($exitAfterSend)
     {
