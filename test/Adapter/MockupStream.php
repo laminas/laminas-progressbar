@@ -1,10 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\ProgressBar\Adapter;
+
+use function parse_url;
+use function strlen;
+use function substr;
+
+use const SEEK_CUR;
+use const SEEK_END;
+use const SEEK_SET;
 
 class MockupStream
 {
-
     private $position;
 
     private $test;
@@ -15,8 +24,8 @@ class MockupStream
     public function stream_open($path, $mode, $options, &$opened_path)
     {
         // @codingStandardsIgnoreEnd
-        $url = parse_url($path);
-        $this->test = $url["host"];
+        $url            = parse_url($path);
+        $this->test     = $url["host"];
         $this->position = 0;
 
         static::$tests[$url["host"]] = '';
@@ -27,7 +36,7 @@ class MockupStream
     public function stream_read($count)
     {
         // @codingStandardsIgnoreEnd
-        $ret = substr(static::$tests[$this->test], $this->position, $count);
+        $ret             = substr(static::$tests[$this->test], $this->position, $count);
         $this->position += strlen($ret);
         return $ret;
     }
@@ -36,10 +45,10 @@ class MockupStream
     public function stream_write($data)
     {
         // @codingStandardsIgnoreEnd
-        $left = substr(static::$tests[$this->test], 0, $this->position);
-        $right = substr(static::$tests[$this->test], $this->position + strlen($data));
+        $left                       = substr(static::$tests[$this->test], 0, $this->position);
+        $right                      = substr(static::$tests[$this->test], $this->position + strlen($data));
         static::$tests[$this->test] = $left . $data . $right;
-        $this->position += strlen($data);
+        $this->position            += strlen($data);
         return strlen($data);
     }
 

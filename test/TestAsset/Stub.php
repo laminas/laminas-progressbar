@@ -1,8 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\ProgressBar\TestAsset;
 
-class Stub extends \Laminas\ProgressBar\ProgressBar
+use Laminas\ProgressBar\ProgressBar;
+
+class Stub extends ProgressBar
 {
     public function sleep($seconds)
     {

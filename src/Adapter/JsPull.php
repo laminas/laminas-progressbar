@@ -23,7 +23,7 @@ class JsPull extends AbstractAdapter
      * Set whether to exit after json data send or not
      *
      * @param  bool $exitAfterSend
-     * @return \Laminas\ProgressBar\Adapter\JsPull
+     * @return JsPull
      */
     public function setExitAfterSend($exitAfterSend)
     {
@@ -46,11 +46,11 @@ class JsPull extends AbstractAdapter
         $arguments = [
             'current'       => $current,
             'max'           => $max,
-            'percent'       => ($percent * 100),
+            'percent'       => $percent * 100,
             'timeTaken'     => $timeTaken,
             'timeRemaining' => $timeRemaining,
             'text'          => $text,
-            'finished'      => false
+            'finished'      => false,
         ];
 
         $data = json_encode($arguments, JSON_THROW_ON_ERROR);

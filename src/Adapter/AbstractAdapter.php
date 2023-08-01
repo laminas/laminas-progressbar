@@ -5,6 +5,12 @@ namespace Laminas\ProgressBar\Adapter;
 use Laminas\Stdlib\ArrayUtils;
 use Traversable;
 
+use function in_array;
+use function is_array;
+use function method_exists;
+use function strtolower;
+use function ucfirst;
+
 /**
  * Abstract class for Laminas\ProgressBar Adapters
  */

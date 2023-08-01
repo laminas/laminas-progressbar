@@ -1,8 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\ProgressBar\TestAsset;
 
-class JsPushStub extends \Laminas\ProgressBar\Adapter\JsPush
+use Laminas\ProgressBar\Adapter\JsPush;
+
+class JsPushStub extends JsPush
 {
     // @codingStandardsIgnoreStart
     protected $_lastOutput = null;

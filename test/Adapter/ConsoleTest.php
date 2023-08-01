@@ -1,10 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\ProgressBar\Adapter;
 
 use Laminas\ProgressBar\Adapter;
 use Laminas\Stdlib\StringUtils;
 use PHPUnit\Framework\TestCase;
+
+use function fwrite;
+use function preg_match;
+use function str_repeat;
+use function stream_get_meta_data;
+use function stream_wrapper_register;
+use function stream_wrapper_unregister;
+use function strlen;
+use function substr;
+
+use const PHP_EOL;
+use const PHP_OS;
 
 class ConsoleTest extends TestCase
 {
@@ -117,9 +131,14 @@ class ConsoleTest extends TestCase
 
     public function testCustomOrder()
     {
-        $adapter = new ConsoleStub(['width' => 25, 'elements' => [Adapter\Console::ELEMENT_ETA,
-                                                                      Adapter\Console::ELEMENT_PERCENT,
-                                                                      Adapter\Console::ELEMENT_BAR]]);
+        $adapter = new ConsoleStub([
+            'width'    => 25,
+            'elements' => [
+                Adapter\Console::ELEMENT_ETA,
+                Adapter\Console::ELEMENT_PERCENT,
+                Adapter\Console::ELEMENT_BAR,
+            ],
+        ]);
         $adapter->notify(0, 100, 0, 0, null, null);
 
         $this->assertEquals('               0% [-----]', $adapter->getLastOutput());
@@ -168,11 +187,11 @@ class ConsoleTest extends TestCase
     public function testBarStyleLeftIndicatorRightWide()
     {
         $adapter = new ConsoleStub([
-            'width' => 20,
-            'elements' => [Adapter\Console::ELEMENT_BAR],
-            'barLeftChar' => '+-',
+            'width'            => 20,
+            'elements'         => [Adapter\Console::ELEMENT_BAR],
+            'barLeftChar'      => '+-',
             'barIndicatorChar' => '[]',
-            'barRightChar' => '=-'
+            'barRightChar'     => '=-',
         ]);
         $adapter->notify(10, 100, .1, 0, null, null);
 
@@ -214,9 +233,9 @@ class ConsoleTest extends TestCase
     public function testTextElementCustomLength()
     {
         $adapter = new ConsoleStub([
-            'width' => 100,
-            'elements' => [Adapter\Console::ELEMENT_TEXT, Adapter\Console::ELEMENT_BAR],
-            'textWidth' => 10
+            'width'     => 100,
+            'elements'  => [Adapter\Console::ELEMENT_TEXT, Adapter\Console::ELEMENT_BAR],
+            'textWidth' => 10,
         ]);
         $adapter->notify(0, 100, 0, 0, null, 'foobar');
 
@@ -260,7 +279,7 @@ class ConsoleTest extends TestCase
 
     public function testgetOutputStreamReturnigStdout()
     {
-        $adapter = new Adapter\Console();
+        $adapter  = new Adapter\Console();
         $resource = $adapter->getOutputStream();
         $this->assertIsResource($resource);
     }
@@ -315,10 +334,15 @@ class ConsoleTest extends TestCase
     public function testMultibyteTruncateFixedWidth()
     {
         $outputWidth = 50;
-        $adapter = new ConsoleStub(['width' => $outputWidth, 'elements' => [Adapter\Console::ELEMENT_PERCENT,
-                                                                                      Adapter\Console::ELEMENT_BAR,
-                                                                                      Adapter\Console::ELEMENT_ETA,
-                                                                                      Adapter\Console::ELEMENT_TEXT]]);
+        $adapter     = new ConsoleStub([
+            'width'    => $outputWidth,
+            'elements' => [
+                Adapter\Console::ELEMENT_PERCENT,
+                Adapter\Console::ELEMENT_BAR,
+                Adapter\Console::ELEMENT_ETA,
+                Adapter\Console::ELEMENT_TEXT,
+            ],
+        ]);
         // @codingStandardsIgnoreStart
         $adapter->notify( 21, 100, .21, 60, 60, 'ChineseTest 這是多字節長度裁剪的測試。我們希望能有超過20名中國字符的長字符串');
         $this->assertEquals(' 21% [##-------] ETA 00:01:00 ChineseTest 這是多字節長度裁', $adapter->getLastOutput());
@@ -334,10 +358,15 @@ class ConsoleTest extends TestCase
     public function testMultibytePadFixedWidth()
     {
         $outputWidth = 50;
-        $adapter = new ConsoleStub(['width' => $outputWidth, 'elements' => [Adapter\Console::ELEMENT_PERCENT,
-                                                                                      Adapter\Console::ELEMENT_BAR,
-                                                                                      Adapter\Console::ELEMENT_ETA,
-                                                                                      Adapter\Console::ELEMENT_TEXT]]);
+        $adapter     = new ConsoleStub([
+            'width'    => $outputWidth,
+            'elements' => [
+                Adapter\Console::ELEMENT_PERCENT,
+                Adapter\Console::ELEMENT_BAR,
+                Adapter\Console::ELEMENT_ETA,
+                Adapter\Console::ELEMENT_TEXT,
+            ],
+        ]);
         $adapter->notify(21, 100, .21, 60, 60, '這是');
         $this->assertEquals(' 21% [##-------] ETA 00:01:00 這是                  ', $adapter->getLastOutput());
 

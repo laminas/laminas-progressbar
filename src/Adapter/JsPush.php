@@ -2,9 +2,13 @@
 
 namespace Laminas\ProgressBar\Adapter;
 
+use function flush;
 use function json_encode;
+use function ob_flush;
+use function str_pad;
 
 use const JSON_THROW_ON_ERROR;
+use const STR_PAD_RIGHT;
 
 /**
  * Laminas\ProgressBar\Adapter\JsPush offers a simple method for updating a
@@ -30,7 +34,7 @@ class JsPush extends AbstractAdapter
      * Set the update method name
      *
      * @param  string $methodName
-     * @return \Laminas\ProgressBar\Adapter\JsPush
+     * @return JsPush
      */
     public function setUpdateMethodName($methodName)
     {
@@ -43,7 +47,7 @@ class JsPush extends AbstractAdapter
      * Set the finish method name
      *
      * @param  string $methodName
-     * @return \Laminas\ProgressBar\Adapter\JsPush
+     * @return JsPush
      */
     public function setFinishMethodName($methodName)
     {
@@ -68,10 +72,10 @@ class JsPush extends AbstractAdapter
         $arguments = [
             'current'       => $current,
             'max'           => $max,
-            'percent'       => ($percent * 100),
+            'percent'       => $percent * 100,
             'timeTaken'     => $timeTaken,
             'timeRemaining' => $timeRemaining,
-            'text'          => $text
+            'text'          => $text,
         ];
 
         $data = '<script type="text/javascript">'

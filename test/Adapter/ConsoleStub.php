@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\ProgressBar\Adapter;
 
 use Laminas\ProgressBar\Adapter;
 
 class ConsoleStub extends Adapter\Console
 {
-    protected $lastOutput = null;
+    protected $lastOutput;
 
     public function getLastOutput()
     {

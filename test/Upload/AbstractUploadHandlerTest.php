@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\ProgressBar\Upload;
 
 use Laminas\ProgressBar\Adapter\AbstractAdapter;
@@ -15,13 +17,13 @@ class AbstractUploadHandlerTest extends TestCase
     public function testGetCurrentlyInProgress()
     {
         $progressData = [
-            'total'    => 1000,
-            'current'  => 500,
-            'rate'     => 0,
-            'message'  => '',
-            'done'     => false,
+            'total'   => 1000,
+            'current' => 500,
+            'rate'    => 0,
+            'message' => '',
+            'done'    => false,
         ];
-        $stub = $this->getMockForAbstractClass(AbstractUploadHandler::class);
+        $stub         = $this->getMockForAbstractClass(AbstractUploadHandler::class);
         $stub->expects($this->any())
             ->method('getUploadProgress')
             ->will($this->returnValue($progressData));
@@ -36,14 +38,14 @@ class AbstractUploadHandlerTest extends TestCase
      */
     public function testGetNoFileInProgress()
     {
-        $status  = [
-            'total'    => 0,
-            'current'  => 0,
-            'rate'     => 0,
-            'message'  => 'No upload in progress',
-            'done'     => true
+        $status = [
+            'total'   => 0,
+            'current' => 0,
+            'rate'    => 0,
+            'message' => 'No upload in progress',
+            'done'    => true,
         ];
-        $stub = $this->getMockForAbstractClass(AbstractUploadHandler::class);
+        $stub   = $this->getMockForAbstractClass(AbstractUploadHandler::class);
         $stub->expects($this->any())
             ->method('getUploadProgress')
             ->will($this->returnValue(false));
@@ -56,27 +58,33 @@ class AbstractUploadHandlerTest extends TestCase
     public function progressDataProvider()
     {
         return [
-            [[
-                'total'    => 1000,
-                'current'  => 200,
-                'rate'     => 0,
-                'message'  => '',
-                'done'     => false,
-            ]],
-            [[
-                'total'    => 1000,
-                'current'  => 600,
-                'rate'     => 300,
-                'message'  => '',
-                'done'     => false,
-            ]],
-            [[
-                'total'    => 1000,
-                'current'  => 1000,
-                'rate'     => 500,
-                'message'  => '',
-                'done'     => true,
-            ]],
+            [
+                [
+                    'total'   => 1000,
+                    'current' => 200,
+                    'rate'    => 0,
+                    'message' => '',
+                    'done'    => false,
+                ],
+            ],
+            [
+                [
+                    'total'   => 1000,
+                    'current' => 600,
+                    'rate'    => 300,
+                    'message' => '',
+                    'done'    => false,
+                ],
+            ],
+            [
+                [
+                    'total'   => 1000,
+                    'current' => 1000,
+                    'rate'    => 500,
+                    'message' => '',
+                    'done'    => true,
+                ],
+            ],
         ];
     }
 
@@ -101,9 +109,9 @@ class AbstractUploadHandlerTest extends TestCase
             ->method('getUploadProgress')
             ->will($this->returnValue($progressData));
         $stub->setOptions([
-                               'session_namespace' => 'testSession',
-                               'progress_adapter'  => $adapterStub,
-                          ]);
+            'session_namespace' => 'testSession',
+            'progress_adapter'  => $adapterStub,
+        ]);
 
         $this->assertEquals('testSession', $stub->getSessionNamespace());
         $this->assertEquals($adapterStub, $stub->getProgressAdapter());
@@ -133,14 +141,13 @@ class AbstractUploadHandlerTest extends TestCase
             'testSession'
         );
 
-
         $stub = $this->getMockForAbstractClass(AbstractUploadHandler::class);
         $stub->expects($this->once())
             ->method('getUploadProgress')
             ->will($this->returnValue($progressData));
         $stub->setOptions([
-           'session_namespace' => 'testSession',
-           'progress_adapter'  => $progressBar,
+            'session_namespace' => 'testSession',
+            'progress_adapter'  => $progressBar,
         ]);
 
         $this->assertEquals('testSession', $stub->getSessionNamespace());

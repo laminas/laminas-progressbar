@@ -1,8 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\ProgressBar\TestAsset;
 
-class MockUp extends \Laminas\ProgressBar\Adapter\AbstractAdapter
+use Laminas\ProgressBar\Adapter\AbstractAdapter;
+
+class MockUp extends AbstractAdapter
 {
     // @codingStandardsIgnoreStart
     protected $_current;
