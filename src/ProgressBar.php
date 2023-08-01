@@ -70,7 +70,7 @@ class ProgressBar
      * @param  float|int               $min
      * @param  float|int               $max
      * @param  string|null             $persistenceNamespace
-     * @throws Exception\OutOfRangeException When $min is greater than $max
+     * @throws Exception\OutOfRangeException When $min is greater than $max.
      */
     public function __construct(AbstractAdapter $adapter, $min = 0, $max = 100, $persistenceNamespace = null)
     {

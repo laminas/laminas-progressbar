@@ -8,37 +8,40 @@ use Laminas\ProgressBar\ProgressBar;
 
 class Stub extends ProgressBar
 {
-    public function sleep($seconds)
+    /** @var MockUp */
+    protected $adapter;
+
+    public function sleep(int $seconds): void
     {
         $this->startTime -= $seconds;
     }
 
-    public function getCurrent()
+    public function getCurrent(): float
     {
         return $this->adapter->getCurrent();
     }
 
-    public function getMax()
+    public function getMax(): float
     {
         return $this->adapter->getMax();
     }
 
-    public function getPercent()
+    public function getPercent(): float
     {
         return $this->adapter->getPercent();
     }
 
-    public function getTimeTaken()
+    public function getTimeTaken(): int
     {
         return $this->adapter->getTimeTaken();
     }
 
-    public function getTimeRemaining()
+    public function getTimeRemaining(): int|null
     {
         return $this->adapter->getTimeRemaining();
     }
 
-    public function getText()
+    public function getText(): string
     {
         return $this->adapter->getText();
     }

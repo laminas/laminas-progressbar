@@ -41,6 +41,8 @@ class UploadProgress extends AbstractUploadHandler
         $status['total']   = $status['bytes_total'];
         $status['current'] = $status['bytes_uploaded'];
         $status['rate']    = $status['speed_average'];
+
+        // phpcs:ignore SlevomatCodingStandard.Operators.DisallowEqualOperators.DisallowedEqualOperator
         if ($status['total'] == $status['current']) {
             $status['done'] = true;
         }

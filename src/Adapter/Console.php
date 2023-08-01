@@ -45,37 +45,37 @@ class Console extends AbstractAdapter
     /**
      * Percentage value of the progress
      */
-    const ELEMENT_PERCENT = 'ELEMENT_PERCENT';
+    public const ELEMENT_PERCENT = 'ELEMENT_PERCENT';
 
     /**
      * Visual value of the progress
      */
-    const ELEMENT_BAR = 'ELEMENT_BAR';
+    public const ELEMENT_BAR = 'ELEMENT_BAR';
 
     /**
      * ETA of the progress
      */
-    const ELEMENT_ETA = 'ELEMENT_ETA';
+    public const ELEMENT_ETA = 'ELEMENT_ETA';
 
     /**
      * Text part of the progress
      */
-    const ELEMENT_TEXT = 'ELEMENT_TEXT';
+    public const ELEMENT_TEXT = 'ELEMENT_TEXT';
 
     /**
      * Finish action: End of Line
      */
-    const FINISH_ACTION_EOL = 'FINISH_ACTION_EOL';
+    public const FINISH_ACTION_EOL = 'FINISH_ACTION_EOL';
 
     /**
      * Finish action: Clear Line
      */
-    const FINISH_ACTION_CLEAR_LINE = 'FINISH_ACTION_CLEAR_LINE';
+    public const FINISH_ACTION_CLEAR_LINE = 'FINISH_ACTION_CLEAR_LINE';
 
     /**
      * Finish action: None
      */
-    const FINISH_ACTION_NONE = 'FINISH_ACTION_NONE';
+    public const FINISH_ACTION_NONE = 'FINISH_ACTION_NONE';
 
     /**
      * Width of the progressbar
@@ -273,8 +273,7 @@ class Console extends AbstractAdapter
      * Set the elements to display with the progressbar
      *
      * @param  array $elements
-     * @throws InvalidArgumentException When an invalid element is found
-     * in the array
+     * @throws InvalidArgumentException When an invalid element is found in the array.
      * @return Console
      */
     public function setElements(array $elements)
@@ -301,7 +300,7 @@ class Console extends AbstractAdapter
      * Set the left-hand character for the bar
      *
      * @param  string $char
-     * @throws InvalidArgumentException When character is empty
+     * @throws InvalidArgumentException When character is empty.
      * @return Console
      */
     public function setBarLeftChar($char)
@@ -319,7 +318,7 @@ class Console extends AbstractAdapter
      * Set the right-hand character for the bar
      *
      * @param  string $char
-     * @throws InvalidArgumentException When character is empty
+     * @throws InvalidArgumentException When character is empty.
      * @return Console
      */
     public function setBarRightChar($char)
@@ -375,7 +374,7 @@ class Console extends AbstractAdapter
      * Set the finish action
      *
      * @param  string $action
-     * @throws InvalidArgumentException When an invalid action is specified
+     * @throws InvalidArgumentException When an invalid action is specified.
      * @return Console
      */
     public function setFinishAction($action)

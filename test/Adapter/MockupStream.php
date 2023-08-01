@@ -14,10 +14,11 @@ use const SEEK_SET;
 
 class MockupStream
 {
-    private $position;
+    private int $position;
 
-    private $test;
+    private string $test;
 
+    /** @var array<string, string> */
     public static $tests = [];
 
     // @codingStandardsIgnoreStart

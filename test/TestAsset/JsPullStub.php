@@ -8,19 +8,17 @@ use Laminas\ProgressBar\Adapter\JsPull;
 
 class JsPullStub extends JsPull
 {
-    // @codingStandardsIgnoreStart
-    protected $_lastOutput = null;
-    // @codingStandardsIgnoreEnd
+    private string $lastOutput;
 
-    public function getLastOutput()
+    public function getLastOutput(): string
     {
-        return $this->_lastOutput;
+        return $this->lastOutput;
     }
 
     // @codingStandardsIgnoreStart
     protected function _outputData($data)
     {
         // @codingStandardsIgnoreEnd
-        $this->_lastOutput = $data;
+        $this->lastOutput = $data;
     }
 }
