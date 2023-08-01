@@ -159,7 +159,7 @@ class ProgressBar
         if ($percent === .0 || $percent === false) {
             $timeRemaining = null;
         } else {
-            $timeRemaining = round(((1 / $percent) * $timeTaken) - $timeTaken);
+            $timeRemaining = (int) round(((1 / $percent) * $timeTaken) - $timeTaken);
         }
 
         // Poll the adapter
