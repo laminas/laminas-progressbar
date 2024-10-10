@@ -25,9 +25,9 @@ constructor. The available options are:
 
 Option name      | Type                    | Description
 ---------------- | ----------------------- | -----------
-outputStream     | `string|resource`       | Different output stream. Can be `php://stderr` or a file path, instead of `STDOUT`.
-width            | `int|ProgressBar::AUTO` | Console width; `ProgressBar::AUTO` for autodetection.
-elements         | `null|array`            | Elements to include; `null` for all or an array with `Console` constants. 
+outputStream     | `string|resource`       | <p>A different output stream, if you don't want to stream to `STDOUT`. Can be any other stream like `php://stderr` or a path to a file.</p>
+width            | `int|ProgressBar::AUTO` | <p>Console width to use; `ProgressBar::AUTO` indicates the adapter should autodetect the width.</p>
+elements         | `null|array`            | <p>Which elements to include in the display; `null` to include all, or an array with one of the `Console` constants, as detailed below.</p>
 textWidth        | `int`                   | Width in characters of the ``ELEMENT_TEXT`` element. Default is 20.
 charset          | `string`                | Charset of the ``ELEMENT_TEXT`` element. Default is utf-8.
 barLeftChar      | `string`                | String to use on the left-hand side of the progressbar indicator.
@@ -57,8 +57,8 @@ constructor. The available options are:
 
 Option name      | Type          | Description
 ---------------- | ------------- | -----------
-updateMethodName | `string`      | The JavaScript method, called on every update. Default value is `Laminas\ProgressBar\Update`.
-finishMethodName | `null|string` | JavaScript method, called when sending the finish status. (default: `NULL`, means nothing is done).
+updateMethodName | `string`      | The JavaScript method which should be called on every update. Default value is `Laminas\ProgressBar\Update`.
+finishMethodName | `null|string` | <p>The JavaScript method which should be called when sending the finish status. Default value is `NULL`, which means nothing is done.</p>
 
 To use this adapter, first create a progressbar in your browser, either with
 JavaScript or plain HTML. Then define the update method and optionally a finish
