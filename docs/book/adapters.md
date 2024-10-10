@@ -25,9 +25,9 @@ constructor. The available options are:
 
 Option name      | Type                    | Description
 ---------------- | ----------------------- | -----------
-outputStream     | ```string|resource```       | A different output stream, if you don't want to stream to `STDOUT`. Can be any other stream like `php://stderr` or a path to a file.
-width            | ```int|ProgressBar::AUTO``` | Console width to use; `ProgressBar::AUTO` indicates the adapter should autodetect the width.
-elements         | ```null|array```            | Which elements to include in the display; `null` to include all, or an array with one of the `Console` constants, as detailed below.
+outputStream     | `string OR resource`       | A different output stream, if you don't want to stream to `STDOUT`. Can be any other stream like `php://stderr` or a path to a file.
+width            | `int OR ProgressBar::AUTO` | Console width to use; `ProgressBar::AUTO` indicates the adapter should autodetect the width.
+elements         | `null OR array`            | Which elements to include in the display; `null` to include all, or an array with one of the `Console` constants, as detailed below.
 textWidth        | `int`                   | Width in characters of the ``ELEMENT_TEXT`` element. Default is 20.
 charset          | `string`                | Charset of the ``ELEMENT_TEXT`` element. Default is utf-8.
 barLeftChar      | `string`                | String to use on the left-hand side of the progressbar indicator.
@@ -58,7 +58,7 @@ constructor. The available options are:
 Option name      | Type          | Description
 ---------------- | ------------- | -----------
 updateMethodName | `string`      | The JavaScript method which should be called on every update. Default value is `Laminas\ProgressBar\Update`.
-finishMethodName | ```null|string``` | The JavaScript method which should be called when sending the finish status. Default value is `NULL`, which means nothing is done.
+finishMethodName | `null OR string` | The JavaScript method which should be called when sending the finish status. Default value is `NULL`, which means nothing is done.
 
 To use this adapter, first create a progressbar in your browser, either with
 JavaScript or plain HTML. Then define the update method and optionally a finish
